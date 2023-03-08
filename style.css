@@ -1,0 +1,31 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid red;
+    }
+    
+    nav .links {
+        background-color: ;
+        display: flex;
+        border:2px solid green;
+    }
+    
+    nav .links ul{
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    
+    }
+    
+    nav .links ul li{
+    
+    }
+    
+    nav .links ul li a{
+    text-decoration: none;
+    }
+    
+    nav .buttons{
+    
+    } 
