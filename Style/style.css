@@ -350,7 +350,7 @@ nav .links ul li a:hover::after {
 }
 
 .data-graph img{
-  display: none;
+  /* display: none; */
   /* border: 2px solid red; */
   /* margin-top: -17px;
   width: 160px; */

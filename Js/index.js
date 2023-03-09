@@ -62,11 +62,11 @@ const getCountries = async ()=> {
 
 
 btn.addEventListener("click",()=>{
-  getData();
+//   getData();
   getCountries();
 })
 
-getData();
+// getData();
 getCountries();
 
 
