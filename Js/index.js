@@ -22,14 +22,14 @@ const getCountries = async ()=> {
     // alert(data.countries[0].country)
 
     const countryArray = data.countries;
-    const countryArrayLength = 5;
+    const countryArrayLength = 6;
     for (let i = 0; i < countryArrayLength; i++) {
         const country = countryArray[i].country;
         const percent = countryArray[i].percent;
 
         const el = `<div class="country-values">
         <div class="country-img">
-            <img src="assets/United Kingdom (GB).svg" alt="">
+            <img src="assets/${country}.png" alt="">
             <div class="country-name-and-users">
             <div class="country-name">${country}</div>
             <div class="progess-percentage">

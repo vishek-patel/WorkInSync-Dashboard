@@ -470,6 +470,8 @@ nav .links ul li a:hover::after {
 }
 .country-data .countries .country-img img {
   border-radius: 50%;
+  width: 34px;
+  height: 35px;
 }
 
 .country-name-and-users {
