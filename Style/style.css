@@ -265,3 +265,40 @@ nav .links ul li a:hover::after {
   border-bottom: 1px solid #e0e0e0;
   border-radius: 4px;
 }
+
+
+.session-info-section{
+  margin-top:12px;
+  display:flex;
+  width:100%;
+  height: 148px;
+  margin-top:18px;
+  /* border: 1px solid red;; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  gap: 24px;
+}
+
+
+
+.session-info-section .grid-secton{
+  width: 100%;;
+  /* width: 360px;
+  height: 148px; */
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+}
+
+.session-info-section .grid-secton .information-container{
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+}
+.session-info-section .grid-secton .information-container .heading{
+  color:#181F33;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+
+}
