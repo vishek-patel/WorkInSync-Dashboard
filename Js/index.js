@@ -16,19 +16,25 @@ const duration_arrow = document.querySelector('.duration-arrow');
 const session_arrow = document.querySelector('.sessions-arrow');
 const user_arrow = document.querySelector('.user-arrow');
 
-const obj ={};
+// filter button
+const M12 = document.querySelector('.sm-btn-1');
+const D30 = document.querySelector('.sm-btn-2');
+const D7 = document.querySelector('.sm-btn-3');
+const H24 = document.querySelector('.sm-btn-4');
+
+const obj = {};
 const json = "";
 
-const getData = async() => {
- const res = await fetch("https://2dd982c6-48ee-49d4-83e5-ab759a365c0c.mock.pstmn.io/countries")
+const getData = async () => {
+    const res = await fetch("https://2dd982c6-48ee-49d4-83e5-ab759a365c0c.mock.pstmn.io/countries")
     const data = await res.json()
     // alert(data.countries[0].country)
 
- div.innerText =`${data.totalUsers}k`;
+    div.innerText = `${data.totalUsers}k`;
 }
 
 
-const getCountries = async ()=> {
+const getCountries = async () => {
     const res = await fetch("https://d858c184-0058-4be6-8826-d26b9bd5e0b0.mock.pstmn.io/activeusers-by-country")
     const data = await res.json()
     // alert(data.countries[0].country)
@@ -53,7 +59,7 @@ const getCountries = async ()=> {
         </div>
       </div>`
 
-      countryDiv.innerHTML +=(el);
+        countryDiv.innerHTML += (el);
 
 
     }
@@ -61,9 +67,9 @@ const getCountries = async ()=> {
 }
 
 
-btn.addEventListener("click",()=>{
-//   getData();
-  getCountries();
+btn.addEventListener("click", () => {
+    //   getData();
+    getCountries();
 })
 
 // getData();
@@ -72,12 +78,12 @@ getCountries();
 
 
 const filterButton = document.getElementById('filterButton')
-filterButton.addEventListener('click', function() {
+filterButton.addEventListener('click', function () {
 
-    filterButton.style.color="white";
-    filterButton.style.backgroundColor="#0937b2";
+    filterButton.style.color = "white";
+    filterButton.style.backgroundColor = "#0937b2";
 
-    }
+}
 );
 
 
