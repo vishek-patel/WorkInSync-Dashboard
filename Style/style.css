@@ -292,6 +292,8 @@ nav .links ul li a:hover::after {
   display: flex;
   width: 100%;
   height: 148px;
+  /* height: 196px; */
+
   margin-top: 18px;
   /* border: 1px solid red;; */
   /* grid-template-columns: 1fr 1fr 1fr; */
@@ -310,6 +312,7 @@ nav .links ul li a:hover::after {
   display: flex;
   flex-direction: column;
   padding: 16px;
+  gap:16px;
 }
 .session-info-section .grid-secton .information-container .heading {
   color: #181f33;
@@ -317,6 +320,50 @@ nav .links ul li a:hover::after {
   flex-direction: row;
   justify-content: space-between;
   font-size: 20px;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  gap: 103px;
+}
+.data-value{
+  /* background-color: #0937b2; */
+  width: 50%;
+  height: 116px;
+  
+}
+.data-graph{
+  /* background-color: #181f33; */
+  width: 50%;
+  height: 116px;
+}
+
+.data-graph img{
+  /* border: 2px solid red; */
+  /* margin-top: -17px;
+  width: 160px; */
+
+  /* margin-top: -8px;
+  width: 137px; */
+}
+.data-up-arrow{
+  margin-left: 5.65px;
+}
+
+.data-value-main{
+  color:#181F33;
+  font-weight: bold;
+  font-size: 32px;
+
+}
+.data-value-elapse{
+  margin-top:8px
+}
+.data-percent{
+  margin-left:5.65px;
+  font-weight: bold;
+  color:#38AF49;
 }
 
 .active-users {
@@ -482,3 +529,4 @@ nav .links ul li a:hover::after {
   width: 100%;
   height: 200px;
 }
+
