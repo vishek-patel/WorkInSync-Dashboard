@@ -260,88 +260,89 @@ nav .links ul li a:hover::after {
   border-left: 1px solid #e0e0e0;
   border-radius: 4px;
 }
+.sm-btn-grp:first-child {
+  border-left: 1px solid #e0e0e0;
+  /* border-radius: 4px; */
+}
 .sm-btn-grp {
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   border-radius: 4px;
 }
+.sm-btn-grp button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 
-
-.session-info-section{
-  margin-top:12px;
-  display:flex;
-  width:100%;
+.session-info-section {
+  margin-top: 12px;
+  display: flex;
+  width: 100%;
   height: 148px;
-  margin-top:18px;
+  margin-top: 18px;
   /* border: 1px solid red;; */
   /* grid-template-columns: 1fr 1fr 1fr; */
   gap: 24px;
 }
 
-
-
-.session-info-section .grid-secton{
-  width: 100%;;
+.session-info-section .grid-secton {
+  width: 100%;
   /* width: 360px;
   height: 148px; */
   border-radius: 8px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
 }
 
-.session-info-section .grid-secton .information-container{
+.session-info-section .grid-secton .information-container {
   display: flex;
   flex-direction: column;
   padding: 16px;
-
 }
-.session-info-section .grid-secton .information-container .heading{
-  color:#181F33;
+.session-info-section .grid-secton .information-container .heading {
+  color: #181f33;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 20px;
-
 }
 
-
-.active-users{
+.active-users {
   margin-top: 18px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   padding: 16px;
-  gap:24px
+  gap: 24px;
 }
 
-.active-users .active-users-heading{
+.active-users .active-users-heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   /* margin-bottom: 12px; */
 }
 
-.active-users .active-users-heading .active-users-heading-text{
+.active-users .active-users-heading .active-users-heading-text {
   font-weight: bold;
   font-size: 20px;
-  color: #181F33;
+  color: #181f33;
   opacity: 0.9;
 }
-.active-users .active-users-heading .active-users-heading-button button{
+.active-users .active-users-heading .active-users-heading-button button {
   font-weight: bold;
   font-size: 15px;
-  color: #0937B2;
+  color: #0937b2;
   opacity: 0.9;
   padding: 6px 16px;
   background-color: white;
   border-radius: 6px;
-  border: 1px solid #0937B2;
-
+  border: 1px solid #0937b2;
 }
-.active-users .map-data{
+.active-users .map-data {
   /* width: 1064px; */
   width: 1095px;
   height: 456px;
   /* border-radius: 8px; */
-  border-top: 1px solid #E0E0E0;
+  border-top: 1px solid #e0e0e0;
 }
