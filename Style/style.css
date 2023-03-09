@@ -355,10 +355,96 @@ nav .links ul li a:hover::after {
 .active-users .map-data {
   /* width: 1064px; */
   width: 100%;
-  height: 200px;
+  /* height: 200px; */
   /* border-radius: 8px; */
   border-top: 1px solid #e0e0e0;
+  /* margin-top:24px; */
+  padding-top: 24px;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  gap:80px;
 }
+
+.active-users .map-data .country-data{
+  /* border: 2px solid green; */
+  /* width: 717px;
+  height: 450px; */
+}
+
+.active-users .map-data .world-map{
+  width: 67%;
+  /* border: 2px solid blue; */
+
+}
+
+.country-data{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.country-data .total-users{
+  font-weight: bold;
+  font-size: 32px;
+  color:#181f33;
+}
+
+.country-data .countries{
+  display: flex;
+  flex-direction: column;
+  gap:16px;
+
+}
+
+
+.country-data .countries .country-img{
+  display: flex;
+  align-items: center;
+  gap:15px;
+}
+.country-data .countries .country-img img {
+  border-radius: 50%;
+}
+
+.country-name-and-users{
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+}
+
+.country-name{
+  font-size: 20px;
+  letter-spacing: 0.15px;
+}
+.percent{
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.progess-percentage{
+  display: flex;
+  align-items: center;
+  gap:4px;
+}
+.progress-bar{
+  display: block;
+  height: 4px;
+  width: 100px;
+  /* border:2px solid red; */
+  border-radius: 20px;
+  background-color: #F5F5F5;
+}
+
+.fill{
+  display: block;
+  height: 4px;
+  width:61.68px;
+ 
+  /* border:2px solid red; */
+  border-radius: 20px;
+  background-color: #0937b2;
+
+}
+
 
 /* piechart section */
 .pie-chart-section {
