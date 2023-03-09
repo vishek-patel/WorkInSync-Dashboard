@@ -360,3 +360,19 @@ nav .links ul li a:hover::after {
   /* border-radius: 8px; */
   border-top: 1px solid #e0e0e0;
 }
+
+/* piechart section */
+.pie-chart-section {
+  margin-top: 18px;
+  border: 1px solid #e0e0e0;
+  padding: 18px 16px;
+  border-radius: 8px;
+}
+.pie-chart-section-heading {
+  font-weight: 700;
+  font-size: 20px;
+  flex: 1;
+}
+.pie-chart-heading-div {
+  display: flex;
+}
