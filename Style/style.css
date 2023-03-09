@@ -24,7 +24,7 @@ nav .links ul li a {
 
 nav {
   border-bottom: #6a737d;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -113,16 +113,15 @@ nav .links ul li a:hover::after {
   height: 40px;
 }
 
-.container{
-
+.container {
   /* border: 2px solid red; */
   height: 100%;
   display: flex;
   flex-direction: row;
-  margin-top:40px;
+  margin-top: 40px;
   /* justify-content: space-between; */
   padding: 0px 24px;
-  gap:62px;
+  gap: 62px;
 }
 
 /* sidebar */
@@ -137,15 +136,10 @@ nav .links ul li a:hover::after {
   list-style: none;
 }
 
-
 .side-bar ul li {
-  /* height: 44px; */
   border-radius: 4px;
   font-size: 14px;
   padding: 12px 8px;
-  /* padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 8px; */
   letter-spacing: 0.2px;
   color: #181f33;
 }
@@ -154,49 +148,45 @@ nav .links ul li a:hover::after {
   background-color: #0937b2;
   width: 160px;
   color: #ffffff;
-}  
+}
 
-.container .right-side-bar{
-  height:100vh;
+.container .right-side-bar {
+  height: 100vh;
   width: 100%;
   border: 2px solid blue;
-  /* margin-top: 40px;
-  margin-left: 24px; */
 }
 
-.message{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  /* gap: 12px;
-  padding: 24px;
-  border: 2px solid red; */
-}
-
-.message-text{
+.message {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.message-text-greet{
+.message-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.message-text-greet {
   font-size: 28px;
   font-weight: bold;
 }
 
-.message-text-info{
+.message-text-info {
   font-size: 16px;
   color: #6a737d;
-  margin-top:16px;
+  margin-top: 16px;
+  margin-bottom: 26px;
 }
 
-.message-buttons{
+.message-buttons {
   display: flex;
   flex-direction: row;
- gap:15px;
+  gap: 15px;
 }
 
-.message-buttons button{
+.message-buttons button {
   font-size: 15px;
   display: flex;
   border-radius: 6px;
@@ -204,18 +194,74 @@ nav .links ul li a:hover::after {
   gap: 12px;
   /* color:#0937B2; */
   font-weight: bold;
-  border:2px solid #0937B2;
+  border: 2px solid #0937b2;
   align-items: center;
   padding: 4px 16px;
-
 }
-.export{
-  color:#0937B2;
+.export {
+  color: #0937b2;
   /* background-color: white; */
 }
 
-.insights{
+.insights {
   padding: 6px 16px;
-  background-color: #0937B2;
+  background-color: #0937b2;
   color: white;
+}
+
+/*Button-group*/
+.button-group {
+  display: flex;
+  /* border: 2px solid red; */
+  /* height: 60px; */
+}
+.small-buttons {
+  flex: 1;
+  /* border: 2px solid green; */
+}
+.large-buttons {
+  display: flex;
+  gap: 12px;
+}
+.large-buttons button {
+  font-size: 15px;
+  display: flex;
+  border-radius: 6px;
+  flex-direction: row;
+  gap: 12px;
+  color: #0937b2;
+  font-weight: bold;
+  border: 2px solid #0937b2;
+  align-items: center;
+  padding: 6px 16px;
+  background-color: transparent;
+}
+.small-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.small-buttons button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #181f33;
+  font-weight: 900;
+  opacity: 0.6;
+  font-size: 13px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-right: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+.sm-btn-1 {
+  border-left: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+.sm-btn-grp {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 4px;
 }
