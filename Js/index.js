@@ -117,4 +117,41 @@ const updateUserData = async () => {
     }
 
 }
+const filterUserData = async (url) => {
+    const data = await fetchData(url);
+    user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
+    user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
+    user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
+    user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
+    user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
+    // Incriment or Decriment
+    if (data?.users[0]?.active_user?.incriment) {
+        duration_arrow.src = "/assets/upArrow.svg";
+    }
+    else {
+        duration_arrow.src = "/assets/downArrow.svg";
+    }
+}
+
+const filterData = async () => {
+    try {
+        M12.addEventListener('click', async () => {
+            filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-12M")
+        })
+        D30.addEventListener('click', async () => {
+            filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-30D")
+        })
+        D7.addEventListener('click', async () => {
+            filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-7D")
+        })
+        H24.addEventListener('click', async () => {
+            filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-24H")
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+updateUserData()
+filterData()
 updateUserData()
