@@ -200,7 +200,7 @@ Highcharts.chart("pie-chart-container", {
             data: [
                 {
                     name: "Organic",
-                    y: 719,
+                    y: 619,
                     color: "#0937B2", // 2020 color
                 },
                 {
@@ -215,13 +215,13 @@ Highcharts.chart("pie-chart-container", {
                 },
                 {
                     name: "Direct",
-                    y: 147,
+                    y: 247,
                     color: "#9EACCE", // 2022 color
                 },
             ],
             center: [75, 65],
-            size: 200,
-            innerSize: "80%",
+            size: 190,
+            innerSize: "70%",
             showInLegend: false,
             dataLabels: {
                 enabled: false,
