@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/Style/style.css" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <title>WIS</title>
   </head>
 
@@ -32,7 +33,8 @@
       </div>
     </nav>
 
-    <section class="container">
+
+    <section class="container-main">
       <div class="side-bar">
         <ul>
           <li>Overview</li>
@@ -42,6 +44,8 @@
         </ul>
       </div>
 
+
+      
       <div class="right-side-bar">
         <div class="main-div">
           <div class="message">
@@ -97,7 +101,13 @@
                   </div>
                 </div>
                 <div class="data-graph">
-                  <img src="" alt="" class="data-graph-image"/>
+                  
+  
+                  
+
+                      <!--High char graph starts here -->
+
+                  <!-- <img src="" alt="" class="data-graph-image"/> -->
                 </div>
               </div>
             </div>
@@ -193,7 +203,9 @@
             <button class="loc-report">Location Report</button>
           </div>
           <div class="pie-chart-main-div">
-            <div class="bar-chart"></div>
+            <div class="bar-chart">
+              <div id="container" style="width:700px; height: 200px; "></div>
+            </div>
             <div class="pie-charts">
               <div class="pie-chart"></div>
               <div class="pie-chart-data">

@@ -114,7 +114,7 @@ nav .links ul li a:hover::after {
   height: 40px;
 }
 
-.container {
+.container-main{
   /* border: 2px solid red; */
   height: 100%;
   display: flex;
@@ -158,7 +158,7 @@ nav .links ul li a:hover::after {
   color: #ffffff;
 }
 
-.container .right-side-bar {
+.container-main .right-side-bar {
   height: 100vh;
   width: 100%;
   /* border: 2px solid blue; */
@@ -347,6 +347,12 @@ nav .links ul li a:hover::after {
   /* background-color: #181f33; */
   width: 50%;
   height: 116px;
+}
+.container{
+  /* display: none; */
+}
+.highcharts-legend {
+  display: none;
 }
 
 .data-graph img{
