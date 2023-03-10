@@ -9,14 +9,14 @@
     },
     {
       "active_session": {
-        "incriment": true,
+        "incriment": false,
         "percent": 59,
         "totalSession": 15.1
       }
     },
     {
       "sessionDuration": {
-        "incriment": false,
+        "incriment": true,
         "duration": 10,
         "percent": 9
       }

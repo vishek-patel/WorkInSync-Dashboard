@@ -2,7 +2,7 @@
   "users": [
     {
       "active_user": {
-        "incriment": false,
+        "incriment": true,
         "percent": 9.5,
         "totalUser": 0.1
       }
