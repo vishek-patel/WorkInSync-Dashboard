@@ -335,7 +335,8 @@ nav .links ul li a:hover::after {
 .data {
   display: flex;
   align-items: center;
-  gap: 103px;
+  gap: 74px;
+  /* gap: 103px; */
 }
 .data-value {
   /* background-color: #0937b2; */
@@ -434,6 +435,7 @@ nav .links ul li a:hover::after {
 }
 
 .active-users .map-data .world-map {
+  margin-top: -62px;
   width: 67%;
   /* border: 2px solid blue; */
 }
