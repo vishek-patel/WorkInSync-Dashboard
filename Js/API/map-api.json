@@ -1,0 +1,33 @@
+[
+  {
+    "code3": "IND",
+    "z": 620,
+    "code": "IN"
+  },
+  {
+    "code3": "USA",
+    "z": 327,
+    "code": "US"
+  },
+
+  {
+    "code3": "UKR",
+    "z": 440,
+    "code": "UA"
+  },
+  {
+    "code3": "AUS",
+    "z": 240,
+    "code": "AU"
+  },
+  {
+    "code3": "SAU",
+    "z": 320,
+    "code": "SA"
+  },
+  {
+    "code3": "CAN",
+    "z": 36265,
+    "code": "CA"
+  }
+]

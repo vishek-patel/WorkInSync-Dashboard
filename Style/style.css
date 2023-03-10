@@ -94,10 +94,6 @@ nav .links ul li a:hover::after {
   color: #0937b2;
 }
 
-.buttons .icons {
-  /* padding:8px 11px; */
-}
-
 .buttons .icons img {
   width: 15px;
   height: 15px;
@@ -356,15 +352,6 @@ nav .links ul li a:hover::after {
   display: none;
 }
 
-.data-graph img {
-  /* display: none; */
-  /* border: 2px solid red; */
-  /* margin-top: -17px;
-  width: 160px; */
-
-  /* margin-top: -8px;
-  width: 137px; */
-}
 .data-up-arrow {
   margin-left: 5.65px;
 }
@@ -431,20 +418,12 @@ nav .links ul li a:hover::after {
   gap: 80px;
 }
 
-.active-users .map-data .country-data {
-  /* border: 2px solid green; */
-  /* width: 717px;
-  height: 450px; */
-}
-
 .active-users .map-data .world-map {
   margin-top: -62px;
   width: 67%;
   /* border: 2px solid blue; */
 }
-.active-users .map-data .world-map img {
-  /* display: none; */
-}
+
 .lg-filter-active {
   color: white;
   background-color: #0937b2;
