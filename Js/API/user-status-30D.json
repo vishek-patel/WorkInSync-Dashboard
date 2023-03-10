@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "active_user": {
+        "incriment": true,
+        "percent": 30.5,
+        "totalUser": 1.8
+      }
+    },
+    {
+      "active_session": {
+        "incriment": true,
+        "percent": 53,
+        "totalSession": 25.1
+      }
+    },
+    {
+      "sessionDuration": {
+        "incriment": false,
+        "duration": 13,
+        "percent": 6
+      }
+    }
+  ]
+}

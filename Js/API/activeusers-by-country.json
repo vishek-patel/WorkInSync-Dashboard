@@ -1,0 +1,78 @@
+{
+  "totalUsers": 550,
+  "countries": [
+    {
+      "country": "India",
+      "activeUsers": 120,
+      "percent": 45.82,
+      "office": 900,
+      "remote": 35,
+      "flexible": 65
+    },
+    {
+      "country": "United Kingdom",
+      "activeUsers": 40,
+      "percent": 35.27,
+      "office": 100,
+      "remote": 25,
+      "flexible": 15
+    },
+    {
+      "country": "United States",
+      "activeUsers": 30,
+      "percent": 45.45,
+      "office": 190,
+      "remote": 5,
+      "flexible": 15
+    },
+    {
+      "country": "Australia",
+      "activeUsers": 10,
+      "percent": 31.82,
+      "office": 150,
+      "remote": 15,
+      "flexible": 5
+    },
+    {
+      "country": "South Africa",
+      "activeUsers": 60,
+      "percent": 39.91,
+      "office": 400,
+      "remote": 25,
+      "flexible": 5
+    },
+    {
+      "country": "Singapore",
+      "activeUsers": 80,
+      "percent": 35.55,
+      "office": 26,
+      "remote": 21,
+      "flexible": 15
+    },
+    {
+      "country": "Canada",
+      "activeUsers": 50,
+      "percent": 9.09,
+      "office": 300,
+      "remote": 15,
+      "flexible": 25
+    },
+    {
+      "country": "New Zealand",
+      "activeUsers": 60,
+      "percent": 10.91,
+      "office": 200,
+      "remote": 55,
+      "flexible": 10
+    },
+
+    {
+      "country": "Singapore",
+      "activeUsers": 90,
+      "percent": 16.36,
+      "office": 122,
+      "remote": 35,
+      "flexible": 26
+    }
+  ]
+}
