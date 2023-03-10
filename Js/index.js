@@ -196,3 +196,42 @@ const filterData = async () => {
 updateUserData()
 filterData()
 updateUserData()
+
+// Pie charts code
+Highcharts.chart("pie-chart-container", {
+    series: [
+        {
+            type: "pie",
+            // name: "Total",
+            data: [
+                {
+                    name: "Organic",
+                    y: 719,
+                    color: "#0937B2", // 2020 color
+                },
+                {
+                    name: "Social",
+                    y: 586,
+                    color: "#D9D9D9", // 2021 color
+                },
+                {
+                    name: "Referral",
+                    y: 647,
+                    color: "#3C68D0", // 2022 color
+                },
+                {
+                    name: "Direct",
+                    y: 147,
+                    color: "#9EACCE", // 2022 color
+                },
+            ],
+            center: [75, 65],
+            size: 200,
+            innerSize: "80%",
+            showInLegend: false,
+            dataLabels: {
+                enabled: false,
+            },
+        },
+    ],
+});

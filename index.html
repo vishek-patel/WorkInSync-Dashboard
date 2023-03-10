@@ -72,8 +72,10 @@
           </div>
 
           <div class="large-buttons">
-            <button class="large-btn lg-btn-1" >Select Dates</button>
-            <button class="large-btn lg-btn-2" id="filterButton">Filters</button>
+            <button class="large-btn lg-btn-1">Select Dates</button>
+            <button class="large-btn lg-btn-2" id="filterButton">
+              Filters
+            </button>
           </div>
         </div>
 
@@ -92,7 +94,10 @@
                   <div class="data-value-main user-count">20.8k</div>
                   <div class="data-value-elapse">
                     <span class="data-up-arrow"
-                      ><img src="assets/upArrow.svg" alt="" class="user-arrow" /></span
+                      ><img
+                        src="assets/upArrow.svg"
+                        alt=""
+                        class="user-arrow" /></span
                     ><span class="data-percent">12%</span> vs last month
                   </div>
                 </div>
@@ -117,8 +122,15 @@
                   <div class="data-value-main main-sessions">21.5k</div>
                   <div class="data-value-elapse">
                     <span class="data-up-arrow"
-                      ><img src="assets/downArrow.svg" alt="" class="sessions-arrow" /></span
-                    ><span class="data-percent session-percent" style="color: #b00020">2%</span>
+                      ><img
+                        src="assets/downArrow.svg"
+                        alt=""
+                        class="sessions-arrow" /></span
+                    ><span
+                      class="data-percent session-percent"
+                      style="color: #b00020"
+                      >2%</span
+                    >
                     vs last month
                   </div>
                 </div>
@@ -143,8 +155,14 @@
                   <div class="data-value-main session-duration">3m 52s</div>
                   <div class="data-value-elapse">
                     <span class="data-up-arrow"
-                      ><img src="assets/upArrow.svg" alt="" class="duration-arrow" /></span
-                    ><span class="data-percent session-duration-percent">9%</span> vs last month
+                      ><img
+                        src="assets/upArrow.svg"
+                        alt=""
+                        class="duration-arrow" /></span
+                    ><span class="data-percent session-duration-percent"
+                      >9%</span
+                    >
+                    vs last month
                   </div>
                 </div>
                 <div class="data-graph">
@@ -169,17 +187,11 @@
               <img src="assets/world 1.svg" alt="" />
             </div>
 
-                <div class="country-data">
-                        <div class="total-users">
-                         
-                        </div>
+            <div class="country-data">
+              <div class="total-users"></div>
 
-                        <div class="countries">
-                   
-                        </div>
-
-                </div>
-
+              <div class="countries"></div>
+            </div>
           </div>
         </div>
         <!--active users section ends here-->
@@ -195,7 +207,9 @@
           <div class="pie-chart-main-div">
             <div class="bar-chart"></div>
             <div class="pie-charts">
-              <div class="pie-chart"></div>
+              <div class="pie-chart">
+                <div id="pie-chart-container"></div>
+              </div>
               <div class="pie-chart-data">
                 <ul>
                   <li class="list-group list-group-1">Organic</li>
@@ -212,7 +226,11 @@
       </div>
       <!--Right side bar end's here-->
     </section>
-
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script type="module" src="/Js/index.js"></script>
   </body>
 </html>
