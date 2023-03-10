@@ -64,14 +64,14 @@ const users30D = {
         },
         {
             active_session: {
-                incriment: true,
+                incriment: false,
                 percent: 53,
                 totalSession: 25.1,
             },
         },
         {
             sessionDuration: {
-                incriment: false,
+                incriment: true,
                 duration: 13,
                 percent: 6,
 
@@ -91,14 +91,14 @@ const users7D = {
         },
         {
             active_session: {
-                incriment: true,
+                incriment: false,
                 percent: 59,
                 totalSession: 15.1,
             },
         },
         {
             sessionDuration: {
-                incriment: false,
+                incriment: true,
                 duration: 10,
                 percent: 9,
 
@@ -111,7 +111,7 @@ const users24H = {
     users: [
         {
             active_user: {
-                incriment: false,
+                incriment: true,
                 percent: 9.5,
                 totalUser: 0.1,
             },

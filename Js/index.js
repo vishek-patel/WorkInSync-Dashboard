@@ -4,7 +4,7 @@ const btn = document.querySelector(".real-time-report")
 const fill = document.querySelector(".fill")
 const countryDiv = document.querySelector(".countries")
 const user_count = document.querySelector('.user-count');
-const user_dataPercent = document.querySelector('.data-percent');
+const user_dataPercent = document.querySelector('.user-data-percent');
 const user_sessions = document.querySelector('.main-sessions');
 const user_sessions_percent = document.querySelector('.session-percent');
 const user_session_duration = document.querySelector('.session-duration');
@@ -85,16 +85,8 @@ const filterUserData = async (url) => {
     user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
     user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
     // Incriment or Decriment
-    if (data?.users[0]?.sessionDuration?.incriment) {
-        user_arrow.src = "/assets/upArrow.svg";
-        user_session_duration_percent.style.color = "#38af49";
-
-    }
-    else {
-        user_arrow.src = "/assets/downArrow.svg";
-        user_session_duration_percent.style.color = "#B00020";
-    }
-    if (data?.users[2]?.active_user?.incriment) {
+    console.log(data?.users);
+    if (data?.users[0]?.active_user?.incriment) {
         duration_arrow.src = "/assets/upArrow.svg";
         user_dataPercent.style.color = "#38af49";
     }
@@ -110,10 +102,19 @@ const filterUserData = async (url) => {
         session_arrow.src = "/assets/downArrow.svg";
         user_sessions_percent.style.color = "#B00020";
     }
+    if (data?.users[2]?.sessionDuration?.incriment) {
+        user_arrow.src = "/assets/upArrow.svg";
+        user_session_duration_percent.style.color = "#38af49";
+
+    }
+    else {
+        user_arrow.src = "/assets/downArrow.svg";
+        user_session_duration_percent.style.color = "#B00020";
+    }
 }
 const updateUserData = async () => {
     try {
-        filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/user-status")
+        filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/userstatus")
     } catch (err) {
         console.log(err);
     }
