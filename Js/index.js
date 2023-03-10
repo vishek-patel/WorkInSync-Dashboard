@@ -3,6 +3,7 @@ const div = document.querySelector(".total-users")
 const btn = document.querySelector(".real-time-report")
 const fill = document.querySelector(".fill")
 const countryDiv = document.querySelector(".countries")
+const dataGraphImage = document.querySelector(".data-graph-image")
 
 const user_count = document.querySelector('.user-count');
 const user_dataPercent = document.querySelector('.data-percent');
@@ -108,8 +109,10 @@ const updateUserData = async () => {
         // Incriment or Decriment
         if (data?.users[0]?.active_user?.incriment) {
             duration_arrow.src = "/assets/upArrow.svg";
+            dataGraphImage.src="/assets/upGraph.svg"
         } else {
             duration_arrow.src = "/assets/downArrow.svg";
+            dataGraphImage.src="/assets/downGraph.svg"
         }
 
     } catch (err) {
