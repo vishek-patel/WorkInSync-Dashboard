@@ -335,7 +335,8 @@ nav .links ul li a:hover::after {
 .data {
   display: flex;
   align-items: center;
-  gap: 74px;
+  gap:51px;
+  /* gap: 74px; */
   /* gap: 103px; */
 }
 .data-value {
@@ -345,8 +346,9 @@ nav .links ul li a:hover::after {
 }
 .data-graph {
   /* background-color: #181f33; */
-  width: 50%;
+  /* width: 50%; */
   height: 116px;
+  margin-top: -50px;
 }
 
 .highcharts-legend {
