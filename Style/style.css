@@ -335,7 +335,7 @@ nav .links ul li a:hover::after {
 .data {
   display: flex;
   align-items: center;
-  gap:51px;
+  gap: 51px;
   /* gap: 74px; */
   /* gap: 103px; */
 }
@@ -619,7 +619,7 @@ ul .list-group::before {
   flex: 2;
 }
 .pie-charts {
-  flex: 1;
+  gap: 40px;
   display: flex;
 }
 .pie-chart {

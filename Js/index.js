@@ -588,191 +588,191 @@ $("#mapDropdown").trigger("change");
 //Data-area-graph
 Highcharts.chart('container-area-graph-up', {
     chart: {
-      type: 'area',
-      backgroundColor: 'white',
-      height:100,
-      width:150,
-      margin: [0, 0, 0, 0],
+        type: 'area',
+        backgroundColor: 'white',
+        height: 100,
+        width: 150,
+        margin: [0, 0, 0, 0],
     },
     title: {
-      text: ''
+        text: ''
     },
     xAxis: {
-      allowDecimals: false,
-      
-      labels: {
-        formatter: function () {
-          return this.value; // clean, unformatted number for year
-        }
-      },
+        allowDecimals: false,
+
+        labels: {
+            formatter: function () {
+                return this.value; // clean, unformatted number for year
+            }
+        },
     },
     yAxis: {
-      gridLineColor: 'transparent',
-      
-      title: {
-        text: ''
-      },
-      labels: {
-        formatter: function () {
-          return this.value / 1000 + 'k';
+        gridLineColor: 'transparent',
+
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value / 1000 + 'k';
+            }
         }
-      }
     },
     tooltip: {
-      pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
     },
     plotOptions: {
-      area: {
-        pointStart: 1940,
-        marker: {
-          enabled: false,
-          symbol: 'circle',
-          radius: 2,
-          states: {
-            hover: {
-              enabled: true
+        area: {
+            pointStart: 1940,
+            marker: {
+                enabled: false,
+                symbol: 'circle',
+                radius: 2,
+                states: {
+                    hover: {
+                        enabled: true
+                    }
+                }
             }
-          }
         }
-      }
     },
     series: [{
-      name: '',
-      data: [
-        299, 438, 841,
-        1169, 1703, 2422, 3692, 
-       
-      ],
-      color:"#E4F5E9",
-      lineColor: '#38AF49'
-    }, ]
-  });
+        name: '',
+        data: [
+            299, 438, 841,
+            1169, 1703, 2422, 3692,
+
+        ],
+        color: "#E4F5E9",
+        lineColor: '#38AF49'
+    },]
+});
 
 
 //Data-area-graph-down-arrow
 Highcharts.chart('container-area-graph-down', {
     chart: {
-      type: 'area',
-      backgroundColor: 'white',
-      height:100,
-      width:150,
-      margin: [0, 0, 0, 0],
+        type: 'area',
+        backgroundColor: 'white',
+        height: 100,
+        width: 150,
+        margin: [0, 0, 0, 0],
     },
     title: {
-      text: ''
+        text: ''
     },
     xAxis: {
-      allowDecimals: false,
-      
-      labels: {
-        formatter: function () {
-          return this.value; // clean, unformatted number for year
-        }
-      },
+        allowDecimals: false,
+
+        labels: {
+            formatter: function () {
+                return this.value; // clean, unformatted number for year
+            }
+        },
     },
     yAxis: {
-      gridLineColor: 'transparent',
-      
-      title: {
-        text: ''
-      },
-      labels: {
-        formatter: function () {
-          return this.value / 1000 + 'k';
+        gridLineColor: 'transparent',
+
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value / 1000 + 'k';
+            }
         }
-      }
     },
     tooltip: {
-      pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
     },
     plotOptions: {
-      area: {
-        pointStart: 1940,
-        marker: {
-          enabled: false,
-          symbol: 'circle',
-          radius: 2,
-          states: {
-            hover: {
-              enabled: true
+        area: {
+            pointStart: 1940,
+            marker: {
+                enabled: false,
+                symbol: 'circle',
+                radius: 2,
+                states: {
+                    hover: {
+                        enabled: true
+                    }
+                }
             }
-          }
         }
-      }
     },
     series: [{
-      name: '',
-      data: [
+        name: '',
+        data: [
 
-            3502,2422,1703,1169,841,538,299
-       
-       
-      ],
-      color:"#FAE1EA",
-      lineColor: '#B00020'
-    }, ]
-  });
+            3502, 2422, 1703, 1169, 841, 538, 299
+
+
+        ],
+        color: "#FAE1EA",
+        lineColor: '#B00020'
+    },]
+});
 
 //Data-area-graph-up-up
 
 Highcharts.chart('container-area-graph-up-up', {
     chart: {
-      type: 'area',
-      backgroundColor: 'white',
-      height:100,
-      width:150,
-      margin: [0, 0, 0, 0],
+        type: 'area',
+        backgroundColor: 'white',
+        height: 100,
+        width: 150,
+        margin: [0, 0, 0, 0],
     },
     title: {
-      text: ''
+        text: ''
     },
     xAxis: {
-      allowDecimals: false,
-      
-      labels: {
-        formatter: function () {
-          return this.value; // clean, unformatted number for year
-        }
-      },
+        allowDecimals: false,
+
+        labels: {
+            formatter: function () {
+                return this.value; // clean, unformatted number for year
+            }
+        },
     },
     yAxis: {
-      gridLineColor: 'transparent',
-      
-      title: {
-        text: ''
-      },
-      labels: {
-        formatter: function () {
-          return this.value / 1000 + 'k';
+        gridLineColor: 'transparent',
+
+        title: {
+            text: ''
+        },
+        labels: {
+            formatter: function () {
+                return this.value / 1000 + 'k';
+            }
         }
-      }
     },
     tooltip: {
-      pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
     },
     plotOptions: {
-      area: {
-        pointStart: 1940,
-        marker: {
-          enabled: false,
-          symbol: 'circle',
-          radius: 2,
-          states: {
-            hover: {
-              enabled: true
+        area: {
+            pointStart: 1940,
+            marker: {
+                enabled: false,
+                symbol: 'circle',
+                radius: 2,
+                states: {
+                    hover: {
+                        enabled: true
+                    }
+                }
             }
-          }
         }
-      }
     },
     series: [{
-      name: '',
-      data: [
-        299, 538, 841,
-        1169, 1703, 2422,3502, 
-       
-      ],
-      color:"#E4F5E9",
-      lineColor: '#38AF49'
-    }, ]
-  });
+        name: '',
+        data: [
+            299, 538, 841,
+            1169, 1703, 2422, 3502,
+
+        ],
+        color: "#E4F5E9",
+        lineColor: '#38AF49'
+    },]
+});
