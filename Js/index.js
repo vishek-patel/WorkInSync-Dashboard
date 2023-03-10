@@ -115,10 +115,8 @@ const updateUserData = async () => {
         // Incriment or Decriment
         if (data?.users[0]?.active_user?.incriment) {
             duration_arrow.src = "/assets/upArrow.svg";
-            dataGraphImage.src="/assets/upGraph.svg"
         } else {
             duration_arrow.src = "/assets/downArrow.svg";
-            dataGraphImage.src="/assets/downGraph.svg"
         }
 
     } catch (err) {
@@ -141,19 +139,74 @@ const filterUserData = async (url) => {
         duration_arrow.src = "/assets/downArrow.svg";
     }
 }
+const updateUserData = async () => {
+    try {
+        filterUserData("https://d858c184-0058-4be6-8826-d26b9bd5e0b0.mock.pstmn.io/user-status")
+
+    } catch (err) {
+        console.log(err);
+    }
+
+}
+
+const updateColor = (selector) => {
+    selector.style.backgroundColor = "#0937b2";
+    selector.style.color = "white";
+}
 
 const filterData = async () => {
     try {
         M12.addEventListener('click', async () => {
+            updateColor(M12);
+            D30.style.backgroundColor = "white";
+            D30.style.color = "#181f33";
+            D7.style.backgroundColor = "white";
+            D7.style.color = "#181f33";
+            H24.style.backgroundColor = "white";
+            H24.style.color = "#181f33";
+            D30.style.opacity = "0.6";
+            D7.style.opacity = "0.6";
+            H24.style.opacity = "0.6";
+
             filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-12M")
         })
         D30.addEventListener('click', async () => {
+            updateColor(D30)
+            M12.style.backgroundColor = "white";
+            M12.style.color = "#181f33";
+            D7.style.backgroundColor = "white";
+            D7.style.color = "#181f33";
+            H24.style.backgroundColor = "white";
+            H24.style.color = "#181f33";
+            M12.style.opacity = "0.6";
+            D7.style.opacity = "0.6";
+            H24.style.opacity = "0.6";
             filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-30D")
         })
         D7.addEventListener('click', async () => {
+            updateColor(D7)
+            M12.style.backgroundColor = "white";
+            M12.style.color = "#181f33";
+            D30.style.backgroundColor = "white";
+            D30.style.color = "#181f33";
+            H24.style.backgroundColor = "white";
+            H24.style.color = "#181f33";
+            M12.style.opacity = "0.6";
+            D30.style.opacity = "0.6";
+            H24.style.opacity = "0.6";
             filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-7D")
         })
         H24.addEventListener('click', async () => {
+            updateColor(H24)
+            M12.style.backgroundColor = "white";
+            M12.style.color = "#181f33";
+            D30.style.backgroundColor = "white";
+            D30.style.color = "#181f33";
+            D7.style.backgroundColor = "white";
+            D7.style.color = "#181f33";
+            M12.style.opacity = "0.6";
+            D30.style.opacity = "0.6";
+            D7.style.opacity = "0.6";
             filterUserData("https://fbcbb164-f2bf-4e83-8dee-a5f9e8089072.mock.pstmn.io/user-status-24H")
         })
     } catch (err) {
@@ -242,3 +295,42 @@ color:"#0937B2"
 }]
 });
 
+
+// Pie charts code
+Highcharts.chart("pie-chart-container", {
+    series: [
+        {
+            type: "pie",
+            // name: "Total",
+            data: [
+                {
+                    name: "Organic",
+                    y: 719,
+                    color: "#0937B2", // 2020 color
+                },
+                {
+                    name: "Social",
+                    y: 586,
+                    color: "#D9D9D9", // 2021 color
+                },
+                {
+                    name: "Referral",
+                    y: 647,
+                    color: "#3C68D0", // 2022 color
+                },
+                {
+                    name: "Direct",
+                    y: 147,
+                    color: "#9EACCE", // 2022 color
+                },
+            ],
+            center: [75, 65],
+            size: 200,
+            innerSize: "80%",
+            showInLegend: false,
+            dataLabels: {
+                enabled: false,
+            },
+        },
+    ],
+});
