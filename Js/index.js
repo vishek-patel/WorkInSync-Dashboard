@@ -104,26 +104,6 @@ const secToMin = (sec) => {
     const seconds = sec % 60;
     return `${min}m ${seconds}s`;
 }
-const updateUserData = async () => {
-    try {
-        const data = await fetchData("https://d858c184-0058-4be6-8826-d26b9bd5e0b0.mock.pstmn.io/user-status");
-        user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
-        user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
-        user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
-        user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
-        user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
-        // Incriment or Decriment
-        if (data?.users[0]?.active_user?.incriment) {
-            duration_arrow.src = "/assets/upArrow.svg";
-        } else {
-            duration_arrow.src = "/assets/downArrow.svg";
-        }
-
-    } catch (err) {
-        console.log(err);
-    }
-
-}
 const filterUserData = async (url) => {
     const data = await fetchData(url);
     user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
@@ -132,11 +112,30 @@ const filterUserData = async (url) => {
     user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
     user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
     // Incriment or Decriment
-    if (data?.users[0]?.active_user?.incriment) {
+    if (data?.users[0]?.sessionDuration?.incriment) {
+        user_arrow.src = "/assets/upArrow.svg";
+        user_session_duration_percent.style.color = "#38af49";
+
+    }
+    else {
+        user_arrow.src = "/assets/downArrow.svg";
+        user_session_duration_percent.style.color = "#B00020";
+    }
+    if (data?.users[2]?.active_user?.incriment) {
         duration_arrow.src = "/assets/upArrow.svg";
+        user_dataPercent.style.color = "#38af49";
     }
     else {
         duration_arrow.src = "/assets/downArrow.svg";
+        user_dataPercent.style.color = "#B00020";
+    }
+    if (data?.users[1]?.active_session?.incriment) {
+        session_arrow.src = "/assets/upArrow.svg";
+        user_sessions_percent.style.color = "#38af49";
+    }
+    else {
+        session_arrow.src = "/assets/downArrow.svg";
+        user_sessions_percent.style.color = "#B00020";
     }
 }
 const updateUserData = async () => {
@@ -222,77 +221,77 @@ updateUserData()
 //graph code 
 
 Highcharts.chart('container', {
-chart: {
-type: 'column',
-backgroundColor: 'transparent',
-style: {
-    fontFamily: 'Roboto'
-},
-spacingBottom: 0,
-spacingTop: 0,
-spacingLeft:0,
-spacingRight: 0,
-plotBorderWidth: 0,
-plotShadow: false,
-plotBackgroundColor: null,
-plotBackgroundImage: null,
-// plotBorderWidth: 20,
-// plotBorderColor: '#606063',
-// height: 300,
-// width: 450,
-margin: [0, 0, 0, 0],
-// padding:[50,50,50,50]
+    chart: {
+        type: 'column',
+        backgroundColor: 'transparent',
+        style: {
+            fontFamily: 'Roboto'
+        },
+        spacingBottom: 0,
+        spacingTop: 0,
+        spacingLeft: 0,
+        spacingRight: 0,
+        plotBorderWidth: 0,
+        plotShadow: false,
+        plotBackgroundColor: null,
+        plotBackgroundImage: null,
+        // plotBorderWidth: 20,
+        // plotBorderColor: '#606063',
+        // height: 300,
+        // width: 450,
+        margin: [0, 0, 0, 0],
+        // padding:[50,50,50,50]
 
-},
-title: {
-text: '',
-align: 'left'
-},
-yAxis: {
-min: 0,
-title: {
-    text: ''
-},
+    },
+    title: {
+        text: '',
+        align: 'left'
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: ''
+        },
 
 
-}
-,
-tooltip: {
-headerFormat: '<b>{point.x}</b><br/>',
-pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-},
-plotOptions: {
-column: {
-    stacking: 'normal',
-    pointPadding: 0.3,
-    groupPadding: 0.1,
-    dataLabels: {
-        enabled: false
     }
-},
-series: {
-    borderWidth: 0,
-    dataLabels: {
-        enabled: true,
-        format: '{point.y}'
-    }
-},
-},
-series: [{
-name: '',
-data: [3, 5, 1, 13,7,9],
-color:"#99BAF7",
+    ,
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            pointPadding: 0.3,
+            groupPadding: 0.1,
+            dataLabels: {
+                enabled: false
+            }
+        },
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}'
+            }
+        },
+    },
+    series: [{
+        name: '',
+        data: [3, 5, 1, 13, 7, 9],
+        color: "#99BAF7",
 
 
-}, {
-name: '',
-data: [14, 8, 8, 12,10,14],
-color:"#3C68D0"
-}, {
-name: '',
-data: [10, 2, 6, 3,10,15],
-color:"#0937B2"
-}]
+    }, {
+        name: '',
+        data: [14, 8, 8, 12, 10, 14],
+        color: "#3C68D0"
+    }, {
+        name: '',
+        data: [10, 2, 6, 3, 10, 15],
+        color: "#0937B2"
+    }]
 });
 
 
