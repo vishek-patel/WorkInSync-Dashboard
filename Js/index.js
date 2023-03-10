@@ -227,75 +227,353 @@ Highcharts.chart("pie-chart-container", {
 //stacked chart code
 
 Highcharts.chart('container', {
-chart: {
-type: 'column',
-backgroundColor: 'transparent',
-style: {
-    fontFamily: 'Roboto'
-},
-spacingBottom: 0,
-spacingTop: 0,
-spacingLeft:0,
-spacingRight: 0,
-plotBorderWidth: 0,
-plotShadow: false,
-plotBackgroundColor: null,
-plotBackgroundImage: null,
-// plotBorderWidth: 20,
-// plotBorderColor: '#606063',
-// height: 300,
-// width: 450,
-margin: [0, 0, 0, 0],
-// padding:[50,50,50,50]
+    chart: {
+        type: 'column',
+        backgroundColor: 'transparent',
+        style: {
+            fontFamily: 'Roboto'
+        },
+        spacingBottom: 0,
+        spacingTop: 0,
+        spacingLeft: 0,
+        spacingRight: 0,
+        plotBorderWidth: 0,
+        plotShadow: false,
+        plotBackgroundColor: null,
+        plotBackgroundImage: null,
+        // plotBorderWidth: 20,
+        // plotBorderColor: '#606063',
+        // height: 300,
+        // width: 450,
+        margin: [0, 0, 0, 0],
+        // padding:[50,50,50,50]
 
-},
-title: {
-text: '',
-align: 'left'
-},
-yAxis: {
-min: 0,
-title: {
-    text: ''
-},
+    },
+    title: {
+        text: '',
+        align: 'left'
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: ''
+        },
 
 
-}
-,
-tooltip: {
-headerFormat: '<b>{point.x}</b><br/>',
-pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-},
-plotOptions: {
-column: {
-    stacking: 'normal',
-    pointPadding: 0.3,
-    groupPadding: 0.1,
-    dataLabels: {
-        enabled: false
     }
-},
-series: {
-    borderWidth: 0,
-    dataLabels: {
-        enabled: true,
-        format: '{point.y}'
-    }
-},
-},
-series: [{
-name: '',
-data: [3, 5, 1, 13,7,9],
-color:"#99BAF7",
+    ,
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            pointPadding: 0.3,
+            groupPadding: 0.1,
+            dataLabels: {
+                enabled: false
+            }
+        },
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}'
+            }
+        },
+    },
+    series: [{
+        name: '',
+        data: [3, 5, 1, 13, 7, 9],
+        color: "#99BAF7",
 
 
-}, {
-name: '',
-data: [14, 8, 8, 12,10,14],
-color:"#3C68D0"
-}, {
-name: '',
-data: [10, 2, 6, 3,10,15],
-color:"#0937B2"
-}]
+    }, {
+        name: '',
+        data: [14, 8, 8, 12, 10, 14],
+        color: "#3C68D0"
+    }, {
+        name: '',
+        data: [10, 2, 6, 3, 10, 15],
+        color: "#0937B2"
+    }]
 });
+
+
+// maps code
+
+
+const baseMapPath = "https://code.highcharts.com/mapdata/";
+
+let showDataLabels = false,
+    mapCount = 0,
+    mapOptions = "";
+$.each(Highcharts.mapDataIndex, (mapGroup, maps) => {
+    if (mapGroup !== "version") {
+        mapOptions += `<option class="option-header">${mapGroup}</option>`;
+        $.each(maps, (desc, path) => {
+            mapOptions += `<option value="${path}">${desc}</option>`;
+            mapCount += 1;
+        });
+    }
+});
+const searchText = `Search ${mapCount} maps`;
+mapOptions = `<option value="custom/world.js">${searchText}</option>${mapOptions}`;
+$("#mapDropdown").append(mapOptions).combobox();
+$("#mapDropdown").on("change", async function () {
+    const $selectedItem = $("option:selected", this),
+        mapDesc = $selectedItem.text(),
+        mapKey = this.value.slice(0, -3),
+        svgPath = baseMapPath + mapKey + ".svg",
+        geojsonPath = baseMapPath + mapKey + ".geo.json",
+        topojsonPath = baseMapPath + mapKey + ".topo.json",
+        javascriptPath = baseMapPath + this.value,
+        isHeader = $selectedItem.hasClass("option-header");
+
+    if (isHeader) {
+        return false;
+    }
+    // Load the map
+    let filesize = "";
+    const mapData = await fetch(topojsonPath)
+        .then((response) => {
+            const size = response.headers.get("content-length");
+            if (size) {
+                filesize = Math.round(size / 1024) + " kB";
+            }
+
+            return response.json();
+        })
+        .catch((e) => console.log("Error", e));
+
+    // Update info box download links
+    $("#download").html(
+        "<small>" +
+        filesize +
+        "</small> <br><br>" +
+        '<a class="button" target="_blank" href="https://jsfiddle.net/gh/get/jquery/1.11.0/' +
+        "highcharts/highcharts/tree/master/samples/mapdata/" +
+        mapKey +
+        '">' +
+        "View clean demo</a>" +
+        '<div class="or-view-as">... or view as ' +
+        '<a target="_blank" href="' +
+        svgPath +
+        '">SVG</a>, ' +
+        '<a target="_blank" href="' +
+        geojsonPath +
+        '">GeoJSON</a>, ' +
+        '<a target="_blank" href="' +
+        topojsonPath +
+        '">TopoJSON</a>, ' +
+        '<a target="_blank" href="' +
+        javascriptPath +
+        '">JavaScript</a>.</div>'
+    );
+
+    // Generate non-random data for the map
+    const data = mapData.objects.default.geometries.map((g, value) => ({
+        key: g.properties["hc-key"],
+        value,
+    }));
+
+    // Show arrows the first time a real map is shown
+    if (mapDesc !== searchText) {
+        $(".selector .prev-next").show();
+        $("#side-box").show();
+    }
+
+    // Is there a layer above this?
+    const match = mapKey.match(
+        /^(countries\/[a-z]{2}\/[a-z]{2})-[a-z0-9]+-all$/
+    );
+    let parent;
+    if (/^countries\/[a-z]{2}\/[a-z]{2}-all$/.test(mapKey)) {
+        // country
+        parent = {
+            desc: "World",
+            key: "custom/world",
+        };
+    } else if (match) {
+        // admin1
+        parent = {
+            desc: $('option[value="' + match[1] + '-all.js"]').text(),
+            key: match[1] + "-all",
+        };
+    }
+    $("#up").html("");
+    if (parent) {
+        $("#up").append(
+            $('<a><i class="fa fa-angle-up"></i> ' + parent.desc + "</a>")
+                .attr({
+                    title: parent.key,
+                })
+                .on("click", function () {
+                    $("#mapDropdown")
+                        .val(parent.key + ".js")
+                        .trigger("change");
+                })
+        );
+    }
+
+    // Data labels formatter. Use shorthand codes for world and US
+    const formatter = function () {
+        return mapKey === "custom/world" || mapKey === "countries/us/us-all"
+            ? this.point.properties && this.point.properties["hc-a2"]
+            : this.point.name;
+    };
+
+    // On point click, look for a detailed map to drill into
+    const onPointClick = function () {
+        const key = this.key;
+        $("#mapDropdown option").each(function () {
+            if (this.value === `countries/${key.substr(0, 2)}/${key}-all.js`) {
+                $("#mapDropdown").val(this.value).trigger("change");
+            }
+        });
+    };
+
+    const fitToGeometry =
+        mapKey === "custom/world"
+            ? {
+                type: "MultiPoint",
+                coordinates: [
+                    // Alaska west
+                    [-164, 54],
+                    // Greenland north
+                    [-35, 84],
+                    // New Zealand east
+                    [179, -38],
+                    // Chile south
+                    [-68, -55],
+                ],
+            }
+            : undefined;
+
+    // Instantiate chart
+    Highcharts.mapChart("maps-container", {
+        chart: {
+            map: mapData,
+        },
+
+        title: {
+            text: null,
+        },
+
+        accessibility: {
+            series: {
+                descriptionFormat:
+                    "{series.name}, map with {series.points.length} areas.",
+                pointDescriptionEnabledThreshold: 50,
+            },
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                alignTo: "spacingBox",
+                x: 10,
+            },
+        },
+
+        mapView: {
+            fitToGeometry,
+        },
+
+        colorAxis: {
+            min: 0,
+            stops: [
+                [0, "#EFEFFF"],
+                [0.5, Highcharts.getOptions().colors[0]],
+                [
+                    1,
+                    Highcharts.color(Highcharts.getOptions().colors[0])
+                        .brighten(-0.5)
+                        .get(),
+                ],
+            ],
+        },
+
+        legend: {
+            layout: "vertical",
+            align: "left",
+            verticalAlign: "bottom",
+        },
+
+        series: [
+            {
+                data,
+                joinBy: ["hc-key", "key"],
+                name: `
+        Users right now \n
+        Office : 900 \n
+        Remote: 35 \n
+        Flexible: 50
+        
+        `,
+                states: {
+                    hover: {
+                        color: "#E0E0E0",
+                        width: "250px",
+                    },
+                },
+                dataLabels: {
+                    enabled: showDataLabels,
+                    formatter,
+                    style: {
+                        fontWeight: 100,
+                        fontSize: "14px",
+                        textOutline: "none",
+                    },
+                },
+                point: {
+                    events: {
+                        click: onPointClick,
+                    },
+                },
+            },
+            {
+                type: "mapline",
+                name: "Lines",
+                accessibility: {
+                    enabled: false,
+                },
+                data: Highcharts.geojson(mapData, "mapline"),
+                nullColor: "#333333",
+                showInLegend: false,
+                enableMouseTracking: false,
+            },
+        ],
+    });
+
+    showDataLabels = $("#chkDataLabels").prop("checked");
+});
+
+// Toggle data labels - Note: Reloads map with new random data
+$("#chkDataLabels").on("change", function () {
+    showDataLabels = $("#chkDataLabels").prop("checked");
+    $("#mapDropdown").trigger("change");
+});
+
+// Switch to previous map on button click
+$("#btn-prev-map").on("click", function () {
+    $("#mapDropdown option:selected")
+        .prev("option")
+        .prop("selected", true)
+        .trigger("change");
+});
+
+// Switch to next map on button click
+$("#btn-next-map").on("click", function () {
+    $("#mapDropdown option:selected")
+        .next("option")
+        .prop("selected", true)
+        .trigger("change");
+});
+
+// Trigger change event to load map on startup
+if (location.hash) {
+    $("#mapDropdown").val(location.hash.substr(1) + ".js");
+}
+$("#mapDropdown").trigger("change");
