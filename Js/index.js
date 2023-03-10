@@ -87,28 +87,27 @@ const filterUserData = async (url) => {
     // Incriment or Decriment
     console.log(data?.users);
     if (data?.users[0]?.active_user?.incriment) {
-        duration_arrow.src = "/assets/upArrow.svg";
-        user_dataPercent.style.color = "#38af49";
+        user_arrow.src = "/assets/upArrow.svg";
+        user_dataPercent.style.color = "#38AF49";
     }
     else {
-        duration_arrow.src = "/assets/downArrow.svg";
+        user_arrow.src = "/assets/downArrow.svg";
         user_dataPercent.style.color = "#B00020";
     }
     if (data?.users[1]?.active_session?.incriment) {
         session_arrow.src = "/assets/upArrow.svg";
-        user_sessions_percent.style.color = "#38af49";
+        user_sessions_percent.style.color = "#38AF49";
     }
     else {
         session_arrow.src = "/assets/downArrow.svg";
         user_sessions_percent.style.color = "#B00020";
     }
     if (data?.users[2]?.sessionDuration?.incriment) {
-        user_arrow.src = "/assets/upArrow.svg";
-        user_session_duration_percent.style.color = "#38af49";
-
+        duration_arrow.src = "/assets/upArrow.svg";
+        user_session_duration_percent.style.color = "#38AF49";
     }
     else {
-        user_arrow.src = "/assets/downArrow.svg";
+        duration_arrow.src = "/assets/downArrow.svg";
         user_session_duration_percent.style.color = "#B00020";
     }
 }
