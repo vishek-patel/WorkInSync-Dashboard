@@ -465,7 +465,7 @@ nav .links ul li a:hover::after {
 .country-data .countries {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 23px;
 }
 
 .country-data .countries .country-img {

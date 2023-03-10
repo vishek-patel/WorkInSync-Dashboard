@@ -31,7 +31,7 @@ const getCountries = async () => {
     const data = await res.json()
     // alert(data.countries[0].country)
     const countryArray = data.countries;
-    const countryArrayLength = 6;
+    const countryArrayLength = 7;
     for (let i = 0; i < countryArrayLength; i++) {
         const country = countryArray[i].country;
         const percent = countryArray[i].percent;
