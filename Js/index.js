@@ -30,6 +30,7 @@ const getCountries = async () => {
     const res = await fetch("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/activeusers-by-country")
     const data = await res.json()
     // alert(data.countries[0].country)
+    div.innerText = `${data.totalUsers}k`;
     const countryArray = data.countries;
     const countryArrayLength = 7;
     for (let i = 0; i < countryArrayLength; i++) {
