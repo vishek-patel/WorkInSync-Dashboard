@@ -185,6 +185,12 @@ filterData()
 updateUserData()
 // Pie charts code
 Highcharts.chart("pie-chart-container", {
+    chart: {
+        type: "pie",
+        backgroundColor: "transparent",
+        // width: 500,
+        // height: 500,
+    },
     series: [
         {
             type: "pie",
