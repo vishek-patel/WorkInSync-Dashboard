@@ -71,7 +71,6 @@ const filterData = async () => {
         })
         D30.addEventListener('click', async () => {
             updateColor(D30)
-            D30.style.marginLeft = "-4px";
             D30.style.borderRadius = "0px";
             M12.style.backgroundColor = "white";
             M12.style.color = "#181F33";
@@ -86,8 +85,7 @@ const filterData = async () => {
         })
         D7.addEventListener('click', async () => {
             updateColor(D7)
-            D7.style.marginLeft = "-4px";
-            D7.style.borderRadius = "0px";
+            D30.style.borderRadius = "0px";
             M12.style.backgroundColor = "white";
             M12.style.color = "#181F33";
             D30.style.backgroundColor = "white";
@@ -101,8 +99,6 @@ const filterData = async () => {
         })
         H24.addEventListener('click', async () => {
             updateColor(H24)
-            H24.style.marginLeft = "-4px";
-            H24.style.borderRadius = "0px";
             M12.style.backgroundColor = "white";
             M12.style.color = "#181F33";
             D30.style.backgroundColor = "white";
@@ -521,9 +517,10 @@ if (location.hash) {
 $("#mapDropdown").trigger("change");
 
 
-// API Fetching
+// API Fetching for area graph
 
-const BarGraphDraw = async () => {
+const AreaGraphDraw = async () => {
+    //! Daily 50 requests
     const { data_up, data_down, data_up_up } = await fetchData('https://container-area-graph-up.free.beeceptor.com/my/api/container-area-graph-up');
 
     //Data-area-graph
@@ -711,7 +708,7 @@ const main = () => {
     getCountries()
     updateUserData()
     filterData()
-    BarGraphDraw()
+    AreaGraphDraw()
 }
 
 main()
