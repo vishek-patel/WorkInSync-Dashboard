@@ -57,6 +57,7 @@ const filterData = async () => {
     try {
         M12.addEventListener('click', async () => {
             updateColor(M12);
+            // M12.style
             D30.style.backgroundColor = "white";
             D30.style.color = "#181F33";
             D7.style.backgroundColor = "white";
@@ -70,6 +71,8 @@ const filterData = async () => {
         })
         D30.addEventListener('click', async () => {
             updateColor(D30)
+            D30.style.marginLeft = "-4px";
+            D30.style.borderRadius = "0px";
             M12.style.backgroundColor = "white";
             M12.style.color = "#181F33";
             D7.style.backgroundColor = "white";
@@ -83,6 +86,8 @@ const filterData = async () => {
         })
         D7.addEventListener('click', async () => {
             updateColor(D7)
+            D7.style.marginLeft = "-4px";
+            D7.style.borderRadius = "0px";
             M12.style.backgroundColor = "white";
             M12.style.color = "#181F33";
             D30.style.backgroundColor = "white";
@@ -96,6 +101,8 @@ const filterData = async () => {
         })
         H24.addEventListener('click', async () => {
             updateColor(H24)
+            H24.style.marginLeft = "-4px";
+            H24.style.borderRadius = "0px";
             M12.style.backgroundColor = "white";
             M12.style.color = "#181F33";
             D30.style.backgroundColor = "white";

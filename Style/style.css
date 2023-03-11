@@ -600,10 +600,12 @@ ul .list-group::before {
 .pie-charts {
   gap: 40px;
   display: flex;
+  margin-bottom: 20.3px;
 }
 .pie-chart {
-  margin-top: 10px;
+  margin-top: 24px;
   flex: 1;
+  margin-bottom: 20.3px;
 }
 ul .list-group-1::before {
   color: #0937b2;
