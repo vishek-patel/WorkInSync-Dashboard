@@ -1,31 +1,18 @@
 // Definations
 const div = document.querySelector(".total-users")
 const btn = document.querySelector(".real-time-report")
-const fill = document.querySelector(".fill")
 const countryDiv = document.querySelector(".countries")
-const user_count = document.querySelector('.user-count');
-const user_dataPercent = document.querySelector('.user-data-percent');
-const user_sessions = document.querySelector('.main-sessions');
-const user_sessions_percent = document.querySelector('.session-percent');
-const user_session_duration = document.querySelector('.session-duration');
-const user_session_duration_percent = document.querySelector('.session-duration-percent');
-// Images
-const duration_arrow = document.querySelector('.duration-arrow');
-const session_arrow = document.querySelector('.sessions-arrow');
-const user_arrow = document.querySelector('.user-arrow');
+
+const filterButton = document.getElementById('filterButton')
 // filter button
 const M12 = document.querySelector('.sm-btn-1');
 const D30 = document.querySelector('.sm-btn-2');
 const D7 = document.querySelector('.sm-btn-3');
 const H24 = document.querySelector('.sm-btn-4');
-const obj = {};
-const json = "";
-const getData = async () => {
-    const res = await fetch("https://2dd982c6-48ee-49d4-83e5-ab759a365c0c.mock.pstmn.io/countries")
-    const data = await res.json()
-    // alert(data.countries[0].country)
-    div.innerText = `${data.totalUsers}k`;
-}
+// Importing functions
+import { fetchData, filterUserData, updateColor } from "./common/common-functions.js";
+
+
 const getCountries = async () => {
     const res = await fetch("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/activeusers-by-country")
     const data = await res.json()
@@ -51,67 +38,13 @@ const getCountries = async () => {
         countryDiv.innerHTML += (el);
     }
 }
-btn.addEventListener("click", () => {
-    //   getData();
-    // getCountries();
-})
-// getData();
-getCountries();
-const filterButton = document.getElementById('filterButton')
 filterButton.addEventListener('click', function () {
     filterButton.style.color = "white";
     filterButton.style.backgroundColor = "#0937B2";
 }
 );
-// Fetching data from API
-const fetchData = async (url) => {
-    try {
-        const res = await fetch(url)
-        const data = await res.json();
-        return data;
-    } catch (err) {
-        throw err;
-    }
-}
-const secToMin = (sec) => {
-    const min = Math.floor(sec / 60);
-    const seconds = sec % 60;
-    return `${min}m ${seconds}s`;
-}
-const filterUserData = async (url) => {
-    const data = await fetchData(url);
-    user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
-    user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
-    user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
-    user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
-    user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
-    // Incriment or Decriment
-    console.log(data?.users);
-    if (data?.users[0]?.active_user?.incriment) {
-        user_arrow.src = "/assets/upArrow.svg";
-        user_dataPercent.style.color = "#38AF49";
-    }
-    else {
-        user_arrow.src = "/assets/downArrow.svg";
-        user_dataPercent.style.color = "#B00020";
-    }
-    if (data?.users[1]?.active_session?.incriment) {
-        session_arrow.src = "/assets/upArrow.svg";
-        user_sessions_percent.style.color = "#38AF49";
-    }
-    else {
-        session_arrow.src = "/assets/downArrow.svg";
-        user_sessions_percent.style.color = "#B00020";
-    }
-    if (data?.users[2]?.sessionDuration?.incriment) {
-        duration_arrow.src = "/assets/upArrow.svg";
-        user_session_duration_percent.style.color = "#38AF49";
-    }
-    else {
-        duration_arrow.src = "/assets/downArrow.svg";
-        user_session_duration_percent.style.color = "#B00020";
-    }
-}
+
+
 const updateUserData = async () => {
     try {
         filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/userstatus")
@@ -119,10 +52,7 @@ const updateUserData = async () => {
         console.log(err);
     }
 }
-const updateColor = (selector) => {
-    selector.style.backgroundColor = "#0937B2";
-    selector.style.color = "white";
-}
+
 const filterData = async () => {
     try {
         M12.addEventListener('click', async () => {
@@ -181,9 +111,7 @@ const filterData = async () => {
         console.log(err);
     }
 }
-updateUserData()
-filterData()
-updateUserData()
+
 // Pie charts code
 Highcharts.chart("pie-chart-container", {
     chart: {
@@ -586,194 +514,197 @@ if (location.hash) {
 $("#mapDropdown").trigger("change");
 
 
-//Data-area-graph
-Highcharts.chart('container-area-graph-up', {
-    chart: {
-        type: 'area',
-        backgroundColor: 'white',
-        height: 100,
-        width: 150,
-        margin: [0, 0, 0, 0],
-    },
-    title: {
-        text: ''
-    },
-    xAxis: {
-        allowDecimals: false,
+// API Fetching
 
-        labels: {
-            formatter: function () {
-                return this.value; // clean, unformatted number for year
-            }
+const BarGraphDraw = async () => {
+    const { data_up, data_down, data_up_up } = await fetchData('https://container-area-graph-up.free.beeceptor.com/my/api/container-area-graph-up');
+
+    //Data-area-graph
+    Highcharts.chart('container-area-graph-up', {
+        chart: {
+            type: 'area',
+            backgroundColor: 'white',
+            height: 100,
+            width: 150,
+            margin: [0, 0, 0, 0],
         },
-    },
-    yAxis: {
-        gridLineColor: 'transparent',
-
         title: {
             text: ''
         },
-        labels: {
-            formatter: function () {
-                return this.value / 1000 + 'k';
+        xAxis: {
+            allowDecimals: false,
+
+            labels: {
+                formatter: function () {
+                    return this.value; // clean, unformatted number for year
+                }
+            },
+        },
+        yAxis: {
+            gridLineColor: 'transparent',
+
+            title: {
+                text: ''
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 1000 + 'k';
+                }
             }
-        }
-    },
-    tooltip: {
-        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-    },
-    plotOptions: {
-        area: {
-            pointStart: 1940,
-            marker: {
-                enabled: false,
-                symbol: 'circle',
-                radius: 2,
-                states: {
-                    hover: {
-                        enabled: true
+        },
+        tooltip: {
+            pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        },
+        plotOptions: {
+            area: {
+                pointStart: 1940,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
                     }
                 }
             }
-        }
-    },
-    series: [{
-        name: '',
-        data: [
-            299, 438, 841,
-            1169, 1703, 2422, 3692,
-
-        ],
-        color: "#E4F5E9",
-        lineColor: '#38AF49'
-    },]
-});
-
-
-//Data-area-graph-down-arrow
-Highcharts.chart('container-area-graph-down', {
-    chart: {
-        type: 'area',
-        backgroundColor: 'white',
-        height: 100,
-        width: 150,
-        margin: [0, 0, 0, 0],
-    },
-    title: {
-        text: ''
-    },
-    xAxis: {
-        allowDecimals: false,
-
-        labels: {
-            formatter: function () {
-                return this.value; // clean, unformatted number for year
-            }
         },
-    },
-    yAxis: {
-        gridLineColor: 'transparent',
+        series: [{
+            name: '',
+            data: data_up,
+            color: "#E4F5E9",
+            lineColor: '#38AF49'
+        },]
+    });
 
+
+    //Data-area-graph-down-arrow
+    Highcharts.chart('container-area-graph-down', {
+        chart: {
+            type: 'area',
+            backgroundColor: 'white',
+            height: 100,
+            width: 150,
+            margin: [0, 0, 0, 0],
+        },
         title: {
             text: ''
         },
-        labels: {
-            formatter: function () {
-                return this.value / 1000 + 'k';
+        xAxis: {
+            allowDecimals: false,
+
+            labels: {
+                formatter: function () {
+                    return this.value; // clean, unformatted number for year
+                }
+            },
+        },
+        yAxis: {
+            gridLineColor: 'transparent',
+
+            title: {
+                text: ''
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 1000 + 'k';
+                }
             }
-        }
-    },
-    tooltip: {
-        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-    },
-    plotOptions: {
-        area: {
-            pointStart: 1940,
-            marker: {
-                enabled: false,
-                symbol: 'circle',
-                radius: 2,
-                states: {
-                    hover: {
-                        enabled: true
+        },
+        tooltip: {
+            pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        },
+        plotOptions: {
+            area: {
+                pointStart: 1940,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
                     }
                 }
             }
-        }
-    },
-    series: [{
-        name: '',
-        data: [
-
-            3502, 2422, 1703, 1169, 841, 538, 299
-
-
-        ],
-        color: "#FAE1EA",
-        lineColor: '#B00020'
-    },]
-});
-
-//Data-area-graph-up-up
-
-Highcharts.chart('container-area-graph-up-up', {
-    chart: {
-        type: 'area',
-        backgroundColor: 'white',
-        height: 100,
-        width: 150,
-        margin: [0, 0, 0, 0],
-    },
-    title: {
-        text: ''
-    },
-    xAxis: {
-        allowDecimals: false,
-
-        labels: {
-            formatter: function () {
-                return this.value; // clean, unformatted number for year
-            }
         },
-    },
-    yAxis: {
-        gridLineColor: 'transparent',
+        series: [{
+            name: '',
+            data: data_down,
+            color: "#FAE1EA",
+            lineColor: '#B00020'
+        },]
+    });
 
+    //Data-area-graph-up-up
+
+    Highcharts.chart('container-area-graph-up-up', {
+        chart: {
+            type: 'area',
+            backgroundColor: 'white',
+            height: 100,
+            width: 150,
+            margin: [0, 0, 0, 0],
+        },
         title: {
             text: ''
         },
-        labels: {
-            formatter: function () {
-                return this.value / 1000 + 'k';
+        xAxis: {
+            allowDecimals: false,
+
+            labels: {
+                formatter: function () {
+                    return this.value; // clean, unformatted number for year
+                }
+            },
+        },
+        yAxis: {
+            gridLineColor: 'transparent',
+
+            title: {
+                text: ''
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 1000 + 'k';
+                }
             }
-        }
-    },
-    tooltip: {
-        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-    },
-    plotOptions: {
-        area: {
-            pointStart: 1940,
-            marker: {
-                enabled: false,
-                symbol: 'circle',
-                radius: 2,
-                states: {
-                    hover: {
-                        enabled: true
+        },
+        tooltip: {
+            pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        },
+        plotOptions: {
+            area: {
+                pointStart: 1940,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
                     }
                 }
             }
-        }
-    },
-    series: [{
-        name: '',
-        data: [
-            299, 538, 841,
-            1169, 1703, 2422, 3502,
+        },
+        series: [{
+            name: '',
+            data: data_up_up,
+            color: "#E4F5E9",
+            lineColor: '#38AF49'
+        },]
+    });
 
-        ],
-        color: "#E4F5E9",
-        lineColor: '#38AF49'
-    },]
-});
+}
+
+const main = () => {
+    getCountries()
+    updateUserData()
+    filterData()
+    BarGraphDraw()
+}
+
+main()

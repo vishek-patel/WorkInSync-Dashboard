@@ -230,3 +230,26 @@ const barCharts = {
 
     },
 }
+
+// container-area-graph-up
+const area_chart_data = {
+    data_up: [
+        299, 438, 841,
+        1169, 1703, 2422, 3692,
+
+    ],
+    data_down: [
+        3502, 2422, 1703, 1169, 841, 538, 299
+    ],
+    data_up_up: [
+        299, 538, 841,
+        1169, 1703, 2422, 3502,
+
+    ]
+}
+
+const stack_data = {
+    data1: [3, 5, 1, 13, 7, 9],
+    data2: [14, 8, 8, 12, 10, 14],
+    data3: [10, 2, 6, 3, 10, 15]
+}

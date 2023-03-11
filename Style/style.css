@@ -593,7 +593,6 @@ ul .list-group::before {
   display: inline-block;
   width: 13.36px;
   height: 13.36px;
-  margin-left: -1em;
 }
 .bar-chart {
   flex: 2;
