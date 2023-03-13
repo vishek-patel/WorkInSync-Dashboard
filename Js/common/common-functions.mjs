@@ -5,7 +5,6 @@ const user_sessions = document.querySelector('.main-sessions');
 const user_sessions_percent = document.querySelector('.session-percent');
 const user_session_duration = document.querySelector('.session-duration');
 const user_session_duration_percent = document.querySelector('.session-duration-percent');
-const fill = document.querySelector(".fill")
 const div = document.querySelector(".total-users")
 const btn = document.querySelector(".real-time-report")
 const countryDiv = document.querySelector(".countries")

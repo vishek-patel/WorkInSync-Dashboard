@@ -9,14 +9,14 @@ import { PieChart } from './common/Pie-Chart.mjs';
 
 // Main function
 const main = () => {
-    filterData()
-    getCountries()
-    filterData()
-    AreaGraphDraw()
-    stack_chart()
+    // filterData()
+    // getCountries()
+    // filterData()
+    // AreaGraphDraw()
+    // stack_chart()
     mapHighChart()
-    PieChart()
-    updateUserData()
+    // PieChart()
+    // updateUserData()
 }
 
 main()

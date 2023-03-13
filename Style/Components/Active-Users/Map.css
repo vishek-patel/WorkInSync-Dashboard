@@ -198,11 +198,48 @@ g[data-z-index="4"] {
   display: none;
 }
 /* Map Hover dot */
-.hover-map::before {
+.map-hover-container {
+  width: 220px;
+  height: 120px;
+}
+.map-hover-h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 16px;
+}
+.map-ul {
+  margin-top: 10px;
+}
+.list-grp-hover {
+  list-style: none;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.list-grp-1::before {
   content: "\2022";
-  color: #0937b2;
+  color: #0087b2;
   font-weight: bold;
   display: inline-block;
-  width: 13.36px;
-  height: 13.36px;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+}
+.list-grp-2::before {
+  content: "\2022";
+  color: #b23600;
+  font-weight: bold;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+}
+.list-grp-3::before {
+  content: "\2022";
+  color: #815fd5;
+  font-weight: bold;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
 }
