@@ -1,33 +1,39 @@
 [
   {
     "code3": "IND",
-    "z": 620,
+    "name": "India",
+    "value": 620,
     "code": "IN"
   },
   {
     "code3": "USA",
-    "z": 327,
+    "name": "USA",
+    "value": 520,
     "code": "US"
   },
 
   {
     "code3": "UKR",
-    "z": 440,
+    "name": "United Kingdom",
+    "value": 645,
     "code": "UA"
   },
   {
     "code3": "AUS",
-    "z": 240,
+    "name": "Australia",
+    "value": 495,
     "code": "AU"
   },
   {
     "code3": "SAU",
-    "z": 320,
+    "name": "South Africa",
+    "value": 456,
     "code": "SA"
   },
   {
     "code3": "CAN",
-    "z": 224,
+    "name": "Canada",
+    "value": 584,
     "code": "CA"
   }
 ]

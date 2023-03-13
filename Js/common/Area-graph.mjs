@@ -86,7 +86,7 @@ export const AreaGraphDraw = async () => {
 
                 labels: {
                     formatter: function () {
-                        return this.value; // clean, unformatted number for year
+                        return this.value;
                     }
                 },
             },

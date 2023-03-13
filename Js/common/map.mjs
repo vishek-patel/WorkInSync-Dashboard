@@ -3,26 +3,33 @@
 
 export const mapHighChart = async () => {
     try {
-
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/custom/world.topo.json'
         ).then(response => response.json());
-        //https://map-graph.free.beeceptor.com/map-area
-        Highcharts.getJSON('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/world-population.json', function (data) {
-            console.log(topology)
+
+        Highcharts.getJSON('https://map-api-data.free.beeceptor.com/map-api-data', function (data) {
+
+            // Prevent logarithmic errors in color calulcation
+            data.forEach(function (p) {
+                p.value = (p.value < 1 ? 1 : p.value);
+            });
+
+            // Initialize the chart
             Highcharts.mapChart('map-container', {
                 chart: {
-                    borderWidth: 0,
-                    map: topology
+                    map: topology,
+                    width: document.querySelector("#map-container").clientWidth,
+                    height: document.querySelector("#map-container").clientHeight,
+                    margin: [0, 0, 0, 0]
                 },
 
-
-                legend: {
-                    enabled: false
+                title: {
+                    text: 'Zoom in on country by double click'
                 },
 
                 mapNavigation: {
                     enabled: true,
+                    enableDoubleClickZoomTo: true,
                     buttonOptions: {
                         verticalAlign: 'bottom'
                     }
@@ -44,39 +51,24 @@ export const mapHighChart = async () => {
                     }
                 },
 
+                colorAxis: {
+                    min: 1,
+                    max: 1000,
+                    type: 'logarithmic'
+                },
+
                 series: [{
-                    name: 'Countries',
-                    color: '#E0E0E0',
-                    enableMouseTracking: true
-                }, {
-                    type: 'mapbubble',
-                    name: '<b> Users right now </b>',
-                    joinBy: ['iso-a3', 'code3', 'name'],
                     data: data,
-                    minSize: 4,
-                    maxSize: '12%',
-                    tooltip: {
-                        pointFormat: ' - Offices : {point.z} <br /> - Remote: 150 <br /> - Flexible: 50',
-                        valueDecimals: 0,
-                    },
-                    color: "#fff",
+                    joinBy: ['iso-a3', 'code3'],
+                    name: 'Population density',
                     states: {
                         hover: {
-                            color: '#E0E0E0',
-                            width: "100px",
-                            height: 150
+                            enabled: false
                         }
                     },
-                    marker: {
-                        fillColor: '#041F80',
-                        lineWidth: 1,
-                        lineColor: '#041F80'
-                    },
-                    dataLabels: {
-                        enabled: false,
-                        format: '{point.code3}'
-                    },
-
+                    tooltip: {
+                        pointFormat: ' - Offices : {point.value} <br /> - Remote: 150 <br /> - Flexible: 50',
+                    }
                 }]
             });
         });

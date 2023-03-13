@@ -40,15 +40,12 @@ const secToMin = (sec) => {
 
 export const filterUserData = async (url) => {
     try {
-
         const data = await fetchData(url);
         user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
         user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
         user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
         user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
         user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
-        // Incriment or Decriment
-        console.log(data?.users);
         if (data?.users[0]?.active_user?.incriment) {
             user_arrow.src = "/assets/upArrow.svg";
             user_dataPercent.style.color = "#38AF49";
@@ -88,18 +85,7 @@ export
     const filterData = async () => {
         try {
             M12.addEventListener('click', async () => {
-                updateColor(M12);
-                // M12.style
-                D30.style.backgroundColor = "white";
-                D30.style.color = "#181F33";
-                D7.style.backgroundColor = "white";
-                D7.style.color = "#181F33";
-                H24.style.backgroundColor = "white";
-                H24.style.color = "#181F33";
-                D30.style.opacity = "0.6";
-                D7.style.opacity = "0.6";
-                H24.style.opacity = "0.6";
-                filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-12M")
+
             })
             D30.addEventListener('click', async () => {
                 updateColor(D30)
@@ -160,7 +146,6 @@ export
     const getCountries = async () => {
         try {
             const data = await fetchData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/activeusers-by-country")
-            // alert(data.countries[0].country)
             div.innerText = `${data.totalUsers}k`;
             const countryArray = data.countries;
             const countryArrayLength = 6;
