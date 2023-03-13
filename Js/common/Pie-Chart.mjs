@@ -23,12 +23,12 @@ export const PieChart = () => {
                         color: "#D9D9D9", // 2021 color
                     },
                     {
-                        name: "Referral",
+                        name: "Direct",
                         y: 647,
                         color: "#3C68D0", // 2022 color
                     },
                     {
-                        name: "Direct",
+                        name: "Refferal",
                         y: 247,
                         color: "#9EACCE", // 2022 color
                     },

@@ -53,7 +53,7 @@
 .country-data {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 .country-data .total-users {
   font-weight: bold;

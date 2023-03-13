@@ -75,6 +75,7 @@
 }
 .pie-chart-data ul {
   list-style: none;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   margin-right: 20.94px;

@@ -6,7 +6,9 @@
   margin-top: 18px;
   gap: 24px;
 }
-
+.heading-icon {
+  margin-bottom: 2px;
+}
 .session-info-section .grid-secton {
   width: 100%;
   border-radius: 8px;
