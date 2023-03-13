@@ -10,10 +10,11 @@ const D30 = document.querySelector('.sm-btn-2');
 const D7 = document.querySelector('.sm-btn-3');
 const H24 = document.querySelector('.sm-btn-4');
 // Importing functions
-import { fetchData, filterUserData, updateColor } from "./common/common-functions.js";
+import { fetchData, filterUserData, updateColor } from "./common/common-functions.mjs";
 import { AreaGraphDraw } from './common/Area-graph.mjs';
 import { stack_chart } from "./common/stack-chart.mjs";
 import { mapHighChart } from './common/map.mjs';
+import { PieChart } from './common/Pie-Chart.mjs';
 
 
 const getCountries = async () => {
@@ -125,6 +126,7 @@ const main = () => {
     AreaGraphDraw()
     stack_chart()
     mapHighChart()
+    PieChart()
 }
 
 main()
