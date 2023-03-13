@@ -17,7 +17,7 @@ import { mapHighChart } from './common/map.mjs';
 
 
 const getCountries = async () => {
-    const res = await fetch("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/activeusers-by-country")
+    const res = await fetch("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/activeusers-by-country")
     const data = await res.json()
     // alert(data.countries[0].country)
     div.innerText = `${data.totalUsers}k`;
@@ -50,7 +50,7 @@ filterButton.addEventListener('click', function () {
 
 const updateUserData = async () => {
     try {
-        filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/userstatus")
+        filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/userstatus")
     } catch (err) {
         console.log(err);
     }
@@ -70,7 +70,7 @@ const filterData = async () => {
             D30.style.opacity = "0.6";
             D7.style.opacity = "0.6";
             H24.style.opacity = "0.6";
-            filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/user-status-12M")
+            filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-12M")
         })
         D30.addEventListener('click', async () => {
             updateColor(D30)
@@ -84,7 +84,7 @@ const filterData = async () => {
             M12.style.opacity = "0.6";
             D7.style.opacity = "0.6";
             H24.style.opacity = "0.6";
-            filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/user-status-30D")
+            filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-30D")
         })
         D7.addEventListener('click', async () => {
             updateColor(D7)
@@ -98,7 +98,7 @@ const filterData = async () => {
             M12.style.opacity = "0.6";
             D30.style.opacity = "0.6";
             H24.style.opacity = "0.6";
-            filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/user-status-7D")
+            filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-7D")
         })
         H24.addEventListener('click', async () => {
             updateColor(H24)
@@ -111,7 +111,7 @@ const filterData = async () => {
             M12.style.opacity = "0.6";
             D30.style.opacity = "0.6";
             D7.style.opacity = "0.6";
-            filterUserData("https://36adcc00-71a5-4192-877d-a2771c69f073.mock.pstmn.io/user-status-24H")
+            filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-24H")
         })
     } catch (err) {
         console.log(err);
