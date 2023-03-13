@@ -1,6 +1,8 @@
 
 // API Fetching for area graph
 
+import { fetchData } from "./common-functions.mjs";
+
 export const AreaGraphDraw = async () => {
     //! Daily 50 requests
     const { data_up, data_down, data_up_up } = await fetchData('https://container-area-graph-up.free.beeceptor.com/my/api/container-area-graph-up');
