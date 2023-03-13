@@ -39,37 +39,43 @@ const secToMin = (sec) => {
 }
 
 export const filterUserData = async (url) => {
-    const data = await fetchData(url);
-    user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
-    user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
-    user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
-    user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
-    user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
-    // Incriment or Decriment
-    console.log(data?.users);
-    if (data?.users[0]?.active_user?.incriment) {
-        user_arrow.src = "/assets/upArrow.svg";
-        user_dataPercent.style.color = "#38AF49";
-    }
-    else {
-        user_arrow.src = "/assets/downArrow.svg";
-        user_dataPercent.style.color = "#B00020";
-    }
-    if (data?.users[1]?.active_session?.incriment) {
-        session_arrow.src = "/assets/upArrow.svg";
-        user_sessions_percent.style.color = "#38AF49";
-    }
-    else {
-        session_arrow.src = "/assets/downArrow.svg";
-        user_sessions_percent.style.color = "#B00020";
-    }
-    if (data?.users[2]?.sessionDuration?.incriment) {
-        duration_arrow.src = "/assets/upArrow.svg";
-        user_session_duration_percent.style.color = "#38AF49";
-    }
-    else {
-        duration_arrow.src = "/assets/downArrow.svg";
-        user_session_duration_percent.style.color = "#B00020";
+    try {
+
+        const data = await fetchData(url);
+        user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
+        user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
+        user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
+        user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
+        user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
+        // Incriment or Decriment
+        console.log(data?.users);
+        if (data?.users[0]?.active_user?.incriment) {
+            user_arrow.src = "/assets/upArrow.svg";
+            user_dataPercent.style.color = "#38AF49";
+        }
+        else {
+            user_arrow.src = "/assets/downArrow.svg";
+            user_dataPercent.style.color = "#B00020";
+        }
+        if (data?.users[1]?.active_session?.incriment) {
+            session_arrow.src = "/assets/upArrow.svg";
+            user_sessions_percent.style.color = "#38AF49";
+        }
+        else {
+            session_arrow.src = "/assets/downArrow.svg";
+            user_sessions_percent.style.color = "#B00020";
+        }
+        if (data?.users[2]?.sessionDuration?.incriment) {
+            duration_arrow.src = "/assets/upArrow.svg";
+            user_session_duration_percent.style.color = "#38AF49";
+        }
+        else {
+            duration_arrow.src = "/assets/downArrow.svg";
+            user_session_duration_percent.style.color = "#B00020";
+        }
+    } catch (err) {
+        console.log(err);
+        alert("Something went wrong")
     }
 }
 
@@ -137,6 +143,7 @@ export
                 filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-24H")
             })
         } catch (err) {
+            alert("Something went wrong")
             console.log(err);
         }
     }
@@ -144,22 +151,23 @@ export const updateUserData = async () => {
     try {
         filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/userstatus")
     } catch (err) {
+        alert("Something went wrong")
         console.log(err);
     }
 }
 
 export
     const getCountries = async () => {
-        const res = await fetch("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/activeusers-by-country")
-        const data = await res.json()
-        // alert(data.countries[0].country)
-        div.innerText = `${data.totalUsers}k`;
-        const countryArray = data.countries;
-        const countryArrayLength = 6;
-        for (let i = 0; i < countryArrayLength; i++) {
-            const country = countryArray[i].country;
-            const percent = countryArray[i].percent;
-            const el = `<div class="country-values">
+        try {
+            const data = await fetchData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/activeusers-by-country")
+            // alert(data.countries[0].country)
+            div.innerText = `${data.totalUsers}k`;
+            const countryArray = data.countries;
+            const countryArrayLength = 6;
+            for (let i = 0; i < countryArrayLength; i++) {
+                const country = countryArray[i].country;
+                const percent = countryArray[i].percent;
+                const el = `<div class="country-values">
         <div class="country-img">
             <img src="assets/${country}.png" alt="">
             <div class="country-name-and-users">
@@ -171,7 +179,11 @@ export
             </div>
         </div>
       </div>`
-            countryDiv.innerHTML += (el);
+                countryDiv.innerHTML += (el);
+            }
+        } catch (err) {
+            alert("Something went wrong")
+            console.log(err);
         }
     }
 filterButton.addEventListener('click', function () {

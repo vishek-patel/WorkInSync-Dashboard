@@ -57,17 +57,17 @@ export const stack_chart = async () => {
         },
         series: [{
             name: '',
-            data: data1 || [3, 5, 1, 13, 7, 9],
+            data: data1,
             color: "#99BAF7",
 
 
         }, {
             name: '',
-            data: data2 || [14, 8, 8, 12, 10, 14],
+            data: data2,
             color: "#3C68D0"
         }, {
             name: '',
-            data: data3 || [10, 2, 6, 3, 10, 15],
+            data: data3,
             color: "#0937B2"
         }]
     });

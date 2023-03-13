@@ -11,7 +11,6 @@ import { PieChart } from './common/Pie-Chart.mjs';
 const main = () => {
     filterData()
     getCountries()
-    updateUserData()
     filterData()
     AreaGraphDraw()
     stack_chart()

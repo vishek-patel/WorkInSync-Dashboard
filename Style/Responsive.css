@@ -1,0 +1,129 @@
+/* Styles for screens smaller than 600px */
+@media (min-width: 0px) and (max-width: 599px) {
+  /* CSS styles go here */
+  .large-buttons {
+    display: none;
+  }
+  .message-buttons {
+    display: none;
+  }
+  #filterButton {
+    display: none;
+  }
+  .side-bar {
+    display: none;
+  }
+  .pie-charts {
+    display: none;
+  }
+}
+
+/* Styles for screens between 600px and 767px */
+@media (min-width: 600px) and (max-width: 767px) {
+  /* CSS styles go here */
+  .large-buttons {
+    display: none;
+  }
+  .message-buttons {
+    display: none;
+  }
+  #filterButton {
+    display: none;
+  }
+  .side-bar {
+    display: none;
+  }
+  .pie-charts {
+    display: none;
+  }
+}
+
+/* Styles for screens between 768px and 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* CSS styles go here */
+  .large-buttons {
+    display: none;
+  }
+  .message-buttons {
+    display: none;
+  }
+  #filterButton {
+    display: none;
+  }
+  .side-bar {
+    display: none;
+  }
+  .pie-charts {
+    display: none;
+  }
+}
+
+/* Styles for screens between 992px and 1062px */
+@media (min-width: 992px) and (max-width: 1062px) {
+  /* CSS styles go here */
+  #container {
+    margin: 0 auto;
+  }
+  .large-buttons button {
+    font-size: 14px;
+  }
+  .heading-text {
+    font-size: 18px;
+  }
+  .message-text-greet {
+    font-size: 24px;
+  }
+  .data {
+    gap: 24px;
+  }
+  .data-value-main {
+    font-size: 20px;
+  }
+  .message-text-info {
+    font-size: 14px;
+  }
+  .data-value-elapse {
+    font-size: 12px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .message-buttons {
+    display: none;
+  }
+  #filterButton {
+    display: none;
+  }
+  .side-bar {
+    display: none;
+  }
+  .pie-charts {
+    display: none;
+  }
+  .large-buttons {
+    display: block;
+  }
+}
+
+/* Styles for screens between 1062px and 1325px */
+@media (min-width: 1062px) and (max-width: 1325px) {
+  /* CSS styles go here */
+  .data-value-elapse {
+    font-size: 14px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .message-buttons {
+    display: none;
+  }
+  #filterButton {
+    display: none;
+  }
+  .side-bar {
+    display: none;
+  }
+  .large-buttons {
+    display: block;
+  }
+}
