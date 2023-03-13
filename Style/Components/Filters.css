@@ -1,0 +1,85 @@
+/*Button-group*/
+.button-group {
+  display: flex;
+  /* border: 2px solid red; */
+  /* height: 60px; */
+}
+.small-buttons {
+  flex: 1;
+  /* border: 2px solid green; */
+}
+.large-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.large-buttons button {
+  font-size: 15px;
+  display: flex;
+  border-radius: 6px;
+  flex-direction: row;
+  gap: 12px;
+  color: #0937b2;
+  font-weight: bold;
+  border: 1px solid #0937b2;
+  align-items: center;
+  padding: 6px 16px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.small-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.small-buttons button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #181f33;
+  font-weight: 900;
+  height: 100%;
+  opacity: 0.6;
+  font-size: 13px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-right: 1px solid #e0e0e0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.small-buttons button:hover {
+  /* opacity: 1; */
+  background-color: #bac6e8;
+  /* background-color: #e0e0e0; */
+}
+.sm-btn-1 {
+  border-left: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+.sm-btn-2,
+.sm-btn-3,
+.sm-btn-4 {
+  border-radius: 0px;
+  margin-left: -4px;
+}
+.sm-btn-grp:first-child {
+  border-left: 1px solid #e0e0e0;
+  /* border-radius: 4px; */
+}
+.sm-btn-grp {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+.sm-btn-grp button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  cursor: pointer;
+}
+.sm-btn-grp button:hover {
+  color: #0937b2;
+  /* background-color: #e0e0e0; */
+  /* font-weight: bold; */
+}

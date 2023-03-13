@@ -1,0 +1,32 @@
+/* sidebar */
+
+.side-bar ul {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar ul li {
+  list-style: none;
+}
+
+.side-bar ul li {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 12px 8px;
+  letter-spacing: 0.2px;
+  color: #181f33;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.side-bar ul li:hover {
+  background-color: #f6f8fa;
+  color: #0937b2;
+  /* font-weight: bold; */
+}
+.side-bar ul li:first-child {
+  background-color: #0937b2;
+  width: 160px;
+  color: #ffffff;
+}

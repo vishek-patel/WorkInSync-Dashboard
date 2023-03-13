@@ -1,0 +1,126 @@
+@import url("./Map.css");
+.active-users {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  gap: 13px;
+}
+
+.active-users .active-users-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin-bottom: 12px; */
+}
+
+.active-users .active-users-heading .active-users-heading-text {
+  font-weight: bold;
+  font-size: 20px;
+  color: #181f33;
+  opacity: 0.9;
+}
+.active-users .active-users-heading .active-users-heading-button button {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0937b2;
+  opacity: 0.9;
+  padding: 6px 16px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #0937b2;
+}
+.active-users .map-data {
+  /* width: 1064px; */
+  width: 100%;
+  /* height: 200px; */
+  /* border-radius: 8px; */
+  border-top: 1px solid #e0e0e0;
+  /* margin-top:24px; */
+  padding-top: 24px;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.active-users .map-data .world-map {
+  width: 67%;
+  /* border: 2px solid blue; */
+}
+
+.lg-filter-active {
+  color: white;
+  background-color: #0937b2;
+  /* background-color: #0937b2; */
+  /* transform: rotate(180deg); */
+}
+
+.country-data {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.country-data .total-users {
+  font-weight: bold;
+  font-size: 32px;
+  color: #181f33;
+}
+
+.country-data .countries {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.country-data .countries .country-img {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.country-data .countries .country-img img {
+  border-radius: 50%;
+  width: 34px;
+  height: 35px;
+}
+
+.country-name-and-users {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.country-name {
+  font-size: 20px;
+  letter-spacing: 0.15px;
+}
+.percent {
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.progess-percentage {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.progress-bar {
+  display: block;
+  height: 4px;
+  width: 100px;
+  /* border:2px solid red; */
+  border-radius: 20px;
+  background-color: #f5f5f5;
+}
+
+.fill {
+  display: block;
+  height: 4px;
+  width: 61.68px;
+
+  /* border:2px solid red; */
+  border-radius: 20px;
+  background-color: #0937b2;
+}

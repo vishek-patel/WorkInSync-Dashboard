@@ -1,0 +1,75 @@
+.session-info-section {
+  margin-top: 12px;
+  display: flex;
+  width: 100%;
+  height: 148px;
+  /* height: 196px; */
+
+  margin-top: 18px;
+  /* border: 1px solid red;; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  gap: 24px;
+}
+
+.session-info-section .grid-secton {
+  width: 100%;
+  /* width: 360px;
+    height: 148px; */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.session-info-section .grid-secton .information-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+}
+.session-info-section .grid-secton .information-container .heading {
+  color: #181f33;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  gap: 51px;
+  /* gap: 74px; */
+  /* gap: 103px; */
+}
+.data-value {
+  /* background-color: #0937b2; */
+  width: 50%;
+  height: 116px;
+}
+.data-graph {
+  /* background-color: #181f33; */
+  /* width: 50%; */
+  height: 116px;
+  margin-top: -50px;
+}
+
+.highcharts-legend {
+  display: none;
+}
+
+.data-up-arrow {
+  margin-left: 5.65px;
+}
+
+.data-value-main {
+  color: #181f33;
+  font-weight: bold;
+  font-size: 32px;
+}
+.data-value-elapse {
+  margin-top: 8px;
+}
+.data-percent {
+  margin-left: 5.65px;
+  font-weight: bold;
+  color: #38af49;
+}
