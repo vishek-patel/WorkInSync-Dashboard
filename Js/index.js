@@ -23,7 +23,7 @@ const getCountries = async () => {
     // alert(data.countries[0].country)
     div.innerText = `${data.totalUsers}k`;
     const countryArray = data.countries;
-    const countryArrayLength = 7;
+    const countryArrayLength = 6;
     for (let i = 0; i < countryArrayLength; i++) {
         const country = countryArray[i].country;
         const percent = countryArray[i].percent;

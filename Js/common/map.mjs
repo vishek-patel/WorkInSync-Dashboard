@@ -54,7 +54,7 @@ export const mapHighChart = async () => {
                 minSize: 4,
                 maxSize: '12%',
                 tooltip: {
-                    pointFormat: ' - Offieces : {point.z} <br /> - Remote: 35 <br /> - Flexible: 50',
+                    pointFormat: ' - Offices : {point.z} <br /> - Remote: 150 <br /> - Flexible: 50',
                     valueDecimals: 0,
                 },
                 color: "#fff",
