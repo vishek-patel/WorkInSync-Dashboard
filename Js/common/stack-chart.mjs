@@ -1,3 +1,5 @@
+import { fetchData } from "./common-functions.mjs";
+
 export const stack_chart = async () => {
     const { data1, data2, data3 } = await fetchData("https://stack-chart.free.beeceptor.com/my/api/stack-chart")
     console.log(data1, data2, data3);
