@@ -82,9 +82,16 @@ nav .links ul li a:hover::after {
   color: #0937b2;
 }
 
+.buttons :nth-child(2){
+  background-color:#DAE1F3;
+}
+
 .buttons .icons img {
-  width: 15px;
-  height: 15px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  width: 18px;
+  height: 20px;
 }
 .settings {
   align-items: center;
