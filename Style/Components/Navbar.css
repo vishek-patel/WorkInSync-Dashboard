@@ -55,10 +55,8 @@ nav .links ul li a::after {
 }
 nav .links ul li a:hover {
   color: #0937b2;
-  /* font-weight: bold; */
 }
 nav .links ul li a:hover::after {
-  /* transition: all 0.3s ease; */
   width: 100%;
   opacity: 1;
 }

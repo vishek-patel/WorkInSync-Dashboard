@@ -23,7 +23,6 @@
 .side-bar ul li:hover {
   background-color: #f6f8fa;
   color: #0937b2;
-  /* font-weight: bold; */
 }
 .side-bar ul li:first-child {
   background-color: #0937b2;

@@ -1,12 +1,9 @@
 /*Button-group*/
 .button-group {
   display: flex;
-  /* border: 2px solid red; */
-  /* height: 60px; */
 }
 .small-buttons {
   flex: 1;
-  /* border: 2px solid green; */
 }
 .large-buttons {
   display: flex;
@@ -50,9 +47,7 @@
   transition: all 0.3s ease;
 }
 .small-buttons button:hover {
-  /* opacity: 1; */
   background-color: #bac6e8;
-  /* background-color: #e0e0e0; */
 }
 .sm-btn-1 {
   border-left: 1px solid #e0e0e0;
@@ -66,7 +61,6 @@
 }
 .sm-btn-grp:first-child {
   border-left: 1px solid #e0e0e0;
-  /* border-radius: 4px; */
 }
 .sm-btn-grp {
   border-top: 1px solid #e0e0e0;
@@ -80,6 +74,4 @@
 }
 .sm-btn-grp button:hover {
   color: #0937b2;
-  /* background-color: #e0e0e0; */
-  /* font-weight: bold; */
 }
