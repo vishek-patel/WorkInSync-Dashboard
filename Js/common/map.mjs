@@ -13,9 +13,6 @@ export const mapHighChart = async () => {
             if (item.name === 'United Kingdom' && name === 'UK') {
                 return true
             }
-            if (item.name === 'Soudi Arabia' && name === 'Saudi Arabia') {
-                return true
-            }
             return item.name === name
         });
         if (data.length === 0) {
@@ -25,9 +22,9 @@ export const mapHighChart = async () => {
         <div class="map-hover-container">
             <h2 class="map-hover-h2">Users right now</h2>
             <ul class="map-ul">
-                <li class="list-grp-hover list-grp-1">Office : ${data[0].value[0]}</li>
-                <li class="list-grp-hover list-grp-2">Remote: ${data[0].value[1]}</li>
-                <li class="list-grp-hover list-grp-3">Flexible: ${data[0].value[2]}</li>
+                <li class="list-grp-hover list-grp-1">Office : ${data[0]?.value[0]}</li>
+                <li class="list-grp-hover list-grp-2">Remote: ${data[0]?.value[1]}</li>
+                <li class="list-grp-hover list-grp-3">Flexible: ${data[0]?.value[2]}</li>
             </ul>
         
         </div>
@@ -39,7 +36,7 @@ export const mapHighChart = async () => {
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/custom/world.topo.json'
         ).then(response => response.json());
-        Highcharts.getJSON('https://map-api.free.beeceptor.com/map-api', function (data) {
+        Highcharts.getJSON('https://map-fake-api.free.beeceptor.com/map-fake-api', function (data) {
             const myData = []
             data.forEach((item) => {
                 myData.push({
