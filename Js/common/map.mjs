@@ -3,7 +3,6 @@
 
 export const mapHighChart = async () => {
     const getTooltip = (name, val) => {
-        // console.log(name, value);
         if (name === undefined) {
             return ``
         }
@@ -22,7 +21,6 @@ export const mapHighChart = async () => {
         if (data.length === 0) {
             return ``
         }
-        console.log({ data });
         return `
         <div class="map-hover-container">
             <h2 class="map-hover-h2">Users right now</h2>
@@ -44,7 +42,6 @@ export const mapHighChart = async () => {
         //Our map URL : https://map-api-data.free.beeceptor.com/map-api-data
         // https://my-map-data.free.beeceptor.com/fake-map-data
         Highcharts.getJSON('https://my-fake-api-data.free.beeceptor.com/my-api-fake', function (data) {
-            // console.log(data);
             const myData = []
             data.forEach((item) => {
                 myData.push({
@@ -54,10 +51,6 @@ export const mapHighChart = async () => {
                     "code": item.code,
                 })
             })
-            // Prevent logarithmic errors in color calulcation
-            data.forEach(function (p) {
-                p.value = (p.value < 1 ? 1 : p.value);
-            });
 
             // Initialize the chart
             Highcharts.mapChart('map-container', {
@@ -69,9 +62,9 @@ export const mapHighChart = async () => {
                 },
 
                 title: {
-                    text: 'Zoom in on country by double click'
+                    text: ''
                 },
-
+                //The mapNavigation option handles buttons for navigation in addition to mousewheel and doubleclick handlers for map zooming.
                 mapNavigation: {
                     enabled: true,
                     enableDoubleClickZoomTo: true,
@@ -103,7 +96,6 @@ export const mapHighChart = async () => {
                 },
                 tooltip: {
                     formatter: function () {
-                        console.log(this);
                         return getTooltip(this.point?.name, data);
                     },
                     shared: true,
@@ -116,7 +108,7 @@ export const mapHighChart = async () => {
                 series: [{
                     data: myData,
                     joinBy: ['iso-a3', 'code3'],
-                    name: 'Population density',
+                    name: '',
                     states: {
                         hover: {
                             enabled: false

@@ -6,7 +6,6 @@ const user_sessions_percent = document.querySelector('.session-percent');
 const user_session_duration = document.querySelector('.session-duration');
 const user_session_duration_percent = document.querySelector('.session-duration-percent');
 const div = document.querySelector(".total-users")
-const btn = document.querySelector(".real-time-report")
 const countryDiv = document.querySelector(".countries")
 
 const filterButton = document.getElementById('filterButton')
@@ -15,11 +14,22 @@ const M12 = document.querySelector('.sm-btn-1');
 const D30 = document.querySelector('.sm-btn-2');
 const D7 = document.querySelector('.sm-btn-3');
 const H24 = document.querySelector('.sm-btn-4');
+const sm_btn = document.querySelectorAll('.sm-btn');
+
 
 const duration_arrow = document.querySelector('.duration-arrow');
 const session_arrow = document.querySelector('.sessions-arrow');
 const user_arrow = document.querySelector('.user-arrow');
 
+
+// Constants
+const PRIMARY_FILTER_BUTTON_BG_COLOR = "#0937B2";
+const SECONDARY_FILTER_BUTTON_COLOR = "#FFFFFF";
+const DATA_ARROW_UP_COLOR = "#38AF49";
+const DATA_ARROW_DOWN_COLOR = '#B00020';
+const UPDATED_OPACITY = "0.6";
+const UPDATED_COLOR = "#181F33";
+const UPDATED_BORDER_RADIUS = "0PX";
 
 // Fetching data from API
 export const fetchData = async (url) => {
@@ -47,27 +57,27 @@ export const filterUserData = async (url) => {
         user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
         if (data?.users[0]?.active_user?.incriment) {
             user_arrow.src = "/assets/upArrow.svg";
-            user_dataPercent.style.color = "#38AF49";
+            user_dataPercent.style.color = DATA_ARROW_UP_COLOR;
         }
         else {
             user_arrow.src = "/assets/downArrow.svg";
-            user_dataPercent.style.color = "#B00020";
+            user_dataPercent.style.color = DATA_ARROW_DOWN_COLOR;
         }
         if (data?.users[1]?.active_session?.incriment) {
             session_arrow.src = "/assets/upArrow.svg";
-            user_sessions_percent.style.color = "#38AF49";
+            user_sessions_percent.style.color = DATA_ARROW_UP_COLOR;
         }
         else {
             session_arrow.src = "/assets/downArrow.svg";
-            user_sessions_percent.style.color = "#B00020";
+            user_sessions_percent.style.color = DATA_ARROW_DOWN_COLOR;
         }
         if (data?.users[2]?.sessionDuration?.incriment) {
             duration_arrow.src = "/assets/upArrow.svg";
-            user_session_duration_percent.style.color = "#38AF49";
+            user_session_duration_percent.style.color = DATA_ARROW_UP_COLOR;
         }
         else {
             duration_arrow.src = "/assets/downArrow.svg";
-            user_session_duration_percent.style.color = "#B00020";
+            user_session_duration_percent.style.color = DATA_ARROW_DOWN_COLOR;
         }
     } catch (err) {
         console.log(err);
@@ -76,67 +86,28 @@ export const filterUserData = async (url) => {
 }
 
 export const updateColor = (selector) => {
-    selector.style.backgroundColor = "#0937B2";
-    selector.style.color = "white";
+    selector.style.backgroundColor = PRIMARY_FILTER_BUTTON_BG_COLOR;
+    selector.style.color = SECONDARY_FILTER_BUTTON_COLOR;
 }
-
+const updateButton = (selector) => {
+    // filterUserData(`https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-${selector.textContent}`)
+    selector.style.backgroundColor = PRIMARY_FILTER_BUTTON_BG_COLOR;
+    selector.style.color = SECONDARY_FILTER_BUTTON_COLOR;
+    const updated_filter_button = Array.from(sm_btn).filter((btn) => btn !== selector);
+    updated_filter_button.forEach((btn) => {
+        btn.style.backgroundColor = SECONDARY_FILTER_BUTTON_COLOR;
+        btn.style.color = UPDATED_COLOR;
+        btn.style.opacity = UPDATED_OPACITY;
+    })
+}
 export
     const filterData = async () => {
         try {
-            M12.addEventListener('click', async () => {
-                updateColor(M12)
-                D30.style.borderRadius = "0px";
-                D7.style.backgroundColor = "white";
-                D7.style.color = "#181F33";
-                D30.style.backgroundColor = "white";
-                D30.style.color = "#181F33";
-                H24.style.backgroundColor = "white";
-                H24.style.color = "#181F33";
-                D7.style.opacity = "0.6";
-                D30.style.opacity = "0.6";
-                H24.style.opacity = "0.6";
-                filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-12M")
-            })
-            D30.addEventListener('click', async () => {
-                updateColor(D30)
-                D30.style.borderRadius = "0px";
-                M12.style.backgroundColor = "white";
-                M12.style.color = "#181F33";
-                D7.style.backgroundColor = "white";
-                D7.style.color = "#181F33";
-                H24.style.backgroundColor = "white";
-                H24.style.color = "#181F33";
-                M12.style.opacity = "0.6";
-                D7.style.opacity = "0.6";
-                H24.style.opacity = "0.6";
-                filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-30D")
-            })
-            D7.addEventListener('click', async () => {
-                updateColor(D7)
-                D30.style.borderRadius = "0px";
-                M12.style.backgroundColor = "white";
-                M12.style.color = "#181F33";
-                D30.style.backgroundColor = "white";
-                D30.style.color = "#181F33";
-                H24.style.backgroundColor = "white";
-                H24.style.color = "#181F33";
-                M12.style.opacity = "0.6";
-                D30.style.opacity = "0.6";
-                H24.style.opacity = "0.6";
-                filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-7D")
-            })
-            H24.addEventListener('click', async () => {
-                updateColor(H24)
-                M12.style.backgroundColor = "white";
-                M12.style.color = "#181F33";
-                D30.style.backgroundColor = "white";
-                D30.style.color = "#181F33";
-                D7.style.backgroundColor = "white";
-                D7.style.color = "#181F33";
-                M12.style.opacity = "0.6";
-                D30.style.opacity = "0.6";
-                D7.style.opacity = "0.6";
-                filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-24H")
+            sm_btn.forEach((btn) => {
+                btn.addEventListener('click', async () => {
+                    updateColor(btn)
+                    updateButton(btn)
+                })
             })
         } catch (err) {
             alert("Something went wrong")
@@ -182,7 +153,7 @@ export
         }
     }
 filterButton.addEventListener('click', function () {
-    filterButton.style.color = "white";
-    filterButton.style.backgroundColor = "#0937B2";
+    filterButton.style.color = SECONDARY_FILTER_BUTTON_COLOR;
+    filterButton.style.backgroundColor = PRIMARY_FILTER_BUTTON_BG_COLOR;
 }
 );

@@ -29,8 +29,6 @@ export const stack_chart = async () => {
             title: {
                 text: ''
             },
-
-
         }
         ,
         tooltip: {
