@@ -3,6 +3,7 @@
 
 export const mapHighChart = async () => {
     const getTooltip = (name, val) => {
+        console.log(name, val);
         if (name === undefined) {
             return ``
         }
@@ -11,6 +12,9 @@ export const mapHighChart = async () => {
                 return true
             }
             if (item.name === 'United Kingdom' && name === 'UK') {
+                return true
+            }
+            if (item.name === 'Soudi Arabia' && name === 'Saudi Arabia') {
                 return true
             }
             return item.name === name
@@ -22,23 +26,24 @@ export const mapHighChart = async () => {
         <div class="map-hover-container">
             <h2 class="map-hover-h2">Users right now</h2>
             <ul class="map-ul">
-                <li class="list-grp-hover list-grp-1">Office : ${data[0]?.value[0]}</li>
-                <li class="list-grp-hover list-grp-2">Remote: ${data[0]?.value[1]}</li>
-                <li class="list-grp-hover list-grp-3">Flexible: ${data[0]?.value[2]}</li>
+                <li class="list-grp-hover list-grp-1">Office : ${data[0].value[0]}</li>
+                <li class="list-grp-hover list-grp-2">Remote: ${data[0].value[1]}</li>
+                <li class="list-grp-hover list-grp-3">Flexible: ${data[0].value[2]}</li>
             </ul>
         
         </div>
-
+    
     `
     }
-
-    try {
-        const topology = await fetch(
-            'https://code.highcharts.com/mapdata/custom/world.topo.json'
-        ).then(response => response.json());
-        Highcharts.getJSON('https://map-fake-api.free.beeceptor.com/map-fake-api', function (data) {
+    async function initMap() {
+        try {
+            const topology = await fetch(
+                'https://code.highcharts.com/mapdata/custom/world.topo.json'
+            ).then(response => response.json());
+            const data = await fetch('https://fake-api-data.free.beeceptor.com/fake-api-data')
+            const json = await data.json();
             const myData = []
-            data.forEach((item) => {
+            json.forEach((item) => {
                 myData.push({
                     "code3": item.code3,
                     "value": item.value.reduce((a, b) => a + b, 0),
@@ -46,76 +51,142 @@ export const mapHighChart = async () => {
                     "code": item.code,
                 })
             })
-
-            // Initialize the chart
+            console.log(myData);
             Highcharts.mapChart('map-container', {
+
                 chart: {
                     map: topology,
-                    width: document.querySelector("#map-container").clientWidth,
-                    height: document.querySelector("#map-container").clientHeight,
-                    margin: [0, 0, 0, 0]
+                    margin: 1
                 },
 
                 title: {
-                    text: ''
+                    text: '',
                 },
-                //The mapNavigation option handles buttons for navigation in addition to mousewheel and doubleclick handlers for map zooming.
+
+                subtitle: {
+                    text: '',
+                },
+                colorAxis: {
+                    min: 1,
+                    max: 1000,
+                },
                 mapNavigation: {
                     enabled: true,
-                    enableDoubleClickZoomTo: true,
                     buttonOptions: {
+                        alignTo: 'spacingBox',
                         verticalAlign: 'bottom'
                     }
                 },
 
                 mapView: {
-                    fitToGeometry: {
-                        type: 'MultiPoint',
-                        coordinates: [
-                            // Alaska west
-                            [-164, 54],
-                            // Greenland north
-                            [-35, 84],
-                            // New Zealand east
-                            [179, -38],
-                            // Chile south
-                            [-68, -55]
-                        ]
-                    }
+                    padding: [0, 0, 0, 0]
                 },
 
-                colorAxis: {
-                    min: 1,
-                    max: 1000,
-                    type: 'logarithmic'
+                plotOptions: {
+                    mappoint: {
+                        keys: ['id', 'lat', 'lon', 'name', 'y'],
+                        marker: {
+                            lineWidth: 1,
+                            lineColor: '#000',
+                            symbol: 'mapmarker',
+                            radius: 8
+                        },
+                        dataLabels: {
+                            enabled: false
+                        }
+                    }
                 },
+                // Hover Effect
                 tooltip: {
+                    headerFormat: '',
                     formatter: function () {
-                        return getTooltip(this.point?.name, data);
+                        // console.log(this.point?.name, json);
+                        return getTooltip(this.point?.name, json);
                     },
                     shared: true,
                     useHTML: true,
                     borderWidth: 0,
                     backgroundColor: '#ffffff',
-                    borderRadius: 12,
-                    padding: 0,
-                    margin: 0
+                    borderRadius: 12
                 },
 
-                series: [{
-                    data: myData,
-                    joinBy: ['iso-a3', 'code3'],
-                    name: '',
-                    states: {
-                        hover: {
-                            enabled: false
-                        }
+                series: [
+                    {
+                        data: myData,
+                        joinBy: ['iso-a3', 'code3'],
+                        name: '',
+                        states: {
+                            hover: {
+                                enabled: false
+                            }
+                        },
                     },
-                }]
+                    {
+                        name: 'Coastal',
+                        color: '#FF9D00',
+                        data: [
+                            [
+                                'is',
+                                28.7,
+                                77.10,
+                                'Delhi',
+
+                            ],
+                            [
+                                'is',
+                                22.57,
+                                88.36,
+                                'Kolkata',
+
+                            ],
+                            [
+                                'fo',
+                                26.7,
+                                49.99,
+                                'ras tanura'
+                            ],
+                            [
+                                'fi',
+                                48.3,
+                                31.1,
+                                'Ukrane',
+
+                            ],
+                            [
+                                'no',
+                                -33.86,
+                                151.20,
+                                'Sydney',
+
+                            ],
+                            [
+                                'no',
+                                -37.81,
+                                144.96,
+                                'Sydney',
+
+                            ],
+                            [
+                                'ee',
+                                38.90,
+                                -77.03,
+                                'WDC',
+
+                            ],
+                            [
+                                'ee',
+                                54.90,
+                                -75.03,
+                                'USA-2',
+
+                            ]
+                        ],
+                        type: 'mappoint'
+                    }]
             });
-        });
-    } catch (err) {
-        console.log(err);
-        alert("Something went wrong");
+        } catch (error) {
+            console.log(error)
+        }
     }
+    initMap()
 }
