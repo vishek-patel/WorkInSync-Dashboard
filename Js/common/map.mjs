@@ -39,8 +39,6 @@ export const mapHighChart = async () => {
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/custom/world.topo.json'
         ).then(response => response.json());
-        //Our map URL : https://map-api-data.free.beeceptor.com/map-api-data
-        // https://my-map-data.free.beeceptor.com/fake-map-data
         Highcharts.getJSON('https://my-fake-api-data.free.beeceptor.com/my-api-fake', function (data) {
             const myData = []
             data.forEach((item) => {

@@ -10,10 +10,6 @@ const countryDiv = document.querySelector(".countries")
 
 const filterButton = document.getElementById('filterButton')
 // filter button
-const M12 = document.querySelector('.sm-btn-1');
-const D30 = document.querySelector('.sm-btn-2');
-const D7 = document.querySelector('.sm-btn-3');
-const H24 = document.querySelector('.sm-btn-4');
 const sm_btn = document.querySelectorAll('.sm-btn');
 
 
@@ -30,6 +26,8 @@ const DATA_ARROW_DOWN_COLOR = '#B00020';
 const UPDATED_OPACITY = "0.6";
 const UPDATED_COLOR = "#181F33";
 const UPDATED_BORDER_RADIUS = "0PX";
+const DOWN_ARROW = "/assets/downArrow.svg";
+const UP_ARROW = "/assets/upArrow.svg";
 
 // Fetching data from API
 export const fetchData = async (url) => {
@@ -56,27 +54,27 @@ export const filterUserData = async (url) => {
         user_sessions.innerHTML = data?.users[1]?.active_session?.totalSession + "k";
         user_sessions_percent.innerHTML = data?.users[1]?.active_session?.percent + "%";
         if (data?.users[0]?.active_user?.incriment) {
-            user_arrow.src = "/assets/upArrow.svg";
+            user_arrow.src = UP_ARROW;
             user_dataPercent.style.color = DATA_ARROW_UP_COLOR;
         }
         else {
-            user_arrow.src = "/assets/downArrow.svg";
+            user_arrow.src = DOWN_ARROW;
             user_dataPercent.style.color = DATA_ARROW_DOWN_COLOR;
         }
         if (data?.users[1]?.active_session?.incriment) {
-            session_arrow.src = "/assets/upArrow.svg";
+            session_arrow.src = UP_ARROW;
             user_sessions_percent.style.color = DATA_ARROW_UP_COLOR;
         }
         else {
-            session_arrow.src = "/assets/downArrow.svg";
+            session_arrow.src = DOWN_ARROW;
             user_sessions_percent.style.color = DATA_ARROW_DOWN_COLOR;
         }
         if (data?.users[2]?.sessionDuration?.incriment) {
-            duration_arrow.src = "/assets/upArrow.svg";
+            duration_arrow.src = UP_ARROW;
             user_session_duration_percent.style.color = DATA_ARROW_UP_COLOR;
         }
         else {
-            duration_arrow.src = "/assets/downArrow.svg";
+            duration_arrow.src = DOWN_ARROW;
             user_session_duration_percent.style.color = DATA_ARROW_DOWN_COLOR;
         }
     } catch (err) {
@@ -90,7 +88,7 @@ export const updateColor = (selector) => {
     selector.style.color = SECONDARY_FILTER_BUTTON_COLOR;
 }
 const updateButton = (selector) => {
-    // filterUserData(`https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-${selector.textContent}`)
+    filterUserData(`https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-${selector.textContent}`)
     selector.style.backgroundColor = PRIMARY_FILTER_BUTTON_BG_COLOR;
     selector.style.color = SECONDARY_FILTER_BUTTON_COLOR;
     const updated_filter_button = Array.from(sm_btn).filter((btn) => btn !== selector);

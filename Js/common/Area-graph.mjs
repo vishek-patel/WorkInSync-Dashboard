@@ -5,8 +5,6 @@ import { fetchData } from "./common-functions.mjs";
 
 export const AreaGraphDraw = async () => {
     try {
-
-        //! Daily 50 requests
         const { data_up, data_down, data_up_up } = await fetchData('https://container-area-graph-up.free.beeceptor.com/my/api/container-area-graph-up');
 
         //Data-area-graph
@@ -34,7 +32,6 @@ export const AreaGraphDraw = async () => {
 
             plotOptions: {
                 area: {
-                    // pointStart: 1940,
                     marker: {
                         enabled: false,
                         symbol: 'circle',
@@ -80,7 +77,6 @@ export const AreaGraphDraw = async () => {
             },
             plotOptions: {
                 area: {
-                    // pointStart: 1940,
                     marker: {
                         enabled: false,
                         symbol: 'circle',
@@ -126,7 +122,6 @@ export const AreaGraphDraw = async () => {
             },
             plotOptions: {
                 area: {
-                    // pointStart: 1940,
                     marker: {
                         enabled: false,
                         symbol: 'circle',
