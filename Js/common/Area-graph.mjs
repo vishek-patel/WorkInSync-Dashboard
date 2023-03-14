@@ -34,7 +34,7 @@ export const AreaGraphDraw = async () => {
 
             plotOptions: {
                 area: {
-                    pointStart: 1940,
+                    // pointStart: 1940,
                     marker: {
                         enabled: false,
                         symbol: 'circle',
@@ -80,7 +80,7 @@ export const AreaGraphDraw = async () => {
             },
             plotOptions: {
                 area: {
-                    pointStart: 1940,
+                    // pointStart: 1940,
                     marker: {
                         enabled: false,
                         symbol: 'circle',
@@ -126,7 +126,7 @@ export const AreaGraphDraw = async () => {
             },
             plotOptions: {
                 area: {
-                    pointStart: 1940,
+                    // pointStart: 1940,
                     marker: {
                         enabled: false,
                         symbol: 'circle',
