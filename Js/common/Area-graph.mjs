@@ -23,12 +23,6 @@ export const AreaGraphDraw = async () => {
             },
             xAxis: {
                 allowDecimals: false,
-
-                labels: {
-                    formatter: function () {
-                        return this.value; // clean, unformatted number for year
-                    }
-                },
             },
             yAxis: {
                 gridLineColor: 'transparent',
@@ -36,15 +30,8 @@ export const AreaGraphDraw = async () => {
                 title: {
                     text: ''
                 },
-                labels: {
-                    formatter: function () {
-                        return this.value / 1000 + 'k';
-                    }
-                }
             },
-            tooltip: {
-                pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-            },
+
             plotOptions: {
                 area: {
                     pointStart: 1940,
@@ -54,7 +41,7 @@ export const AreaGraphDraw = async () => {
                         radius: 2,
                         states: {
                             hover: {
-                                enabled: true
+                                enabled: false
                             }
                         }
                     }
@@ -83,12 +70,6 @@ export const AreaGraphDraw = async () => {
             },
             xAxis: {
                 allowDecimals: false,
-
-                labels: {
-                    formatter: function () {
-                        return this.value;
-                    }
-                },
             },
             yAxis: {
                 gridLineColor: 'transparent',
@@ -96,14 +77,6 @@ export const AreaGraphDraw = async () => {
                 title: {
                     text: ''
                 },
-                labels: {
-                    formatter: function () {
-                        return this.value / 1000 + 'k';
-                    }
-                }
-            },
-            tooltip: {
-                pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
             },
             plotOptions: {
                 area: {
@@ -114,7 +87,7 @@ export const AreaGraphDraw = async () => {
                         radius: 2,
                         states: {
                             hover: {
-                                enabled: true
+                                enabled: false
                             }
                         }
                     }
@@ -143,12 +116,6 @@ export const AreaGraphDraw = async () => {
             },
             xAxis: {
                 allowDecimals: false,
-
-                labels: {
-                    formatter: function () {
-                        return this.value; // clean, unformatted number for year
-                    }
-                },
             },
             yAxis: {
                 gridLineColor: 'transparent',
@@ -156,14 +123,6 @@ export const AreaGraphDraw = async () => {
                 title: {
                     text: ''
                 },
-                labels: {
-                    formatter: function () {
-                        return this.value / 1000 + 'k';
-                    }
-                }
-            },
-            tooltip: {
-                pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
             },
             plotOptions: {
                 area: {
@@ -174,7 +133,7 @@ export const AreaGraphDraw = async () => {
                         radius: 2,
                         states: {
                             hover: {
-                                enabled: true
+                                enabled: false
                             }
                         }
                     }

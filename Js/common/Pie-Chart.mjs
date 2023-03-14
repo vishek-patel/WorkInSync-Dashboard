@@ -15,22 +15,22 @@ export const PieChart = () => {
                     {
                         name: "Organic",
                         y: 619,
-                        color: "#0937B2", // 2020 color
+                        color: "#0937B2",
                     },
                     {
                         name: "Social",
                         y: 586,
-                        color: "#D9D9D9", // 2021 color
+                        color: "#D9D9D9",
                     },
                     {
                         name: "Direct",
                         y: 647,
-                        color: "#3C68D0", // 2022 color
+                        color: "#3C68D0",
                     },
                     {
                         name: "Refferal",
                         y: 247,
-                        color: "#9EACCE", // 2022 color
+                        color: "#9EACCE",
                     },
                 ],
                 center: [75, 65],

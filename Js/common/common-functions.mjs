@@ -84,7 +84,18 @@ export
     const filterData = async () => {
         try {
             M12.addEventListener('click', async () => {
-
+                updateColor(M12)
+                D30.style.borderRadius = "0px";
+                D7.style.backgroundColor = "white";
+                D7.style.color = "#181F33";
+                D30.style.backgroundColor = "white";
+                D30.style.color = "#181F33";
+                H24.style.backgroundColor = "white";
+                H24.style.color = "#181F33";
+                D7.style.opacity = "0.6";
+                D30.style.opacity = "0.6";
+                H24.style.opacity = "0.6";
+                filterUserData("https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-12M")
             })
             D30.addEventListener('click', async () => {
                 updateColor(D30)
