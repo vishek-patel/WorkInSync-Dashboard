@@ -1,4 +1,3 @@
-// Definations
 
 // Importing functions
 import { filterData, getCountries, updateUserData } from "./common/common-functions.mjs";
@@ -10,12 +9,12 @@ import { PieChart } from './common/Pie-Chart.mjs';
 // Main function
 const main = () => {
     filterData()
-    getCountries()
-    AreaGraphDraw()
-    stack_chart()
+    // getCountries()
+    // AreaGraphDraw()
+    // stack_chart()
     mapHighChart()
-    PieChart()
-    updateUserData()
+    // PieChart()
+    // updateUserData()
 }
 
 main()

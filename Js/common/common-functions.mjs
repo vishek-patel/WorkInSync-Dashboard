@@ -11,7 +11,9 @@ const countryDiv = document.querySelector(".countries")
 const filterButton = document.getElementById('filterButton')
 // filter button
 const sm_btn = document.querySelectorAll('.sm-btn');
-
+const loader = document.querySelectorAll('.loader');
+const information_container = document.querySelectorAll('.information-container');
+const grid_secton = document.querySelectorAll('.grid-secton');
 
 const duration_arrow = document.querySelector('.duration-arrow');
 const session_arrow = document.querySelector('.sessions-arrow');
@@ -47,7 +49,18 @@ const secToMin = (sec) => {
 
 export const filterUserData = async (url) => {
     try {
+        for (let i = 0; i < 3; i++) {
+            information_container[i].style.display = "none";
+            loader[i].style.display = "block";
+            grid_secton[i].classList.add("center")
+        }
         const data = await fetchData(url);
+        for (let i = 0; i < 3; i++) {
+            loader[i].style.display = "none";
+            information_container[i].style.display = "block";
+            grid_secton[i].classList.remove("center")
+        }
+
         user_count.innerHTML = data?.users[0]?.active_user?.totalUser + "k";
         user_dataPercent.innerHTML = data?.users[0]?.active_user?.percent + "%";
         user_session_duration.innerHTML = secToMin(data?.users[2]?.sessionDuration?.duration);
@@ -88,6 +101,7 @@ export const updateColor = (selector) => {
     selector.style.color = SECONDARY_FILTER_BUTTON_COLOR;
 }
 const updateButton = (selector) => {
+
     filterUserData(`https://acf062d9-1952-483b-bee7-6bcf38c36621.mock.pstmn.io/user-status-${selector.textContent}`)
     selector.style.backgroundColor = PRIMARY_FILTER_BUTTON_BG_COLOR;
     selector.style.color = SECONDARY_FILTER_BUTTON_COLOR;

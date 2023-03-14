@@ -39,7 +39,7 @@ export const mapHighChart = async () => {
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/custom/world.topo.json'
         ).then(response => response.json());
-        Highcharts.getJSON('https://my-fake-api-data.free.beeceptor.com/my-api-fake', function (data) {
+        Highcharts.getJSON('https://map-api.free.beeceptor.com/map-api', function (data) {
             const myData = []
             data.forEach((item) => {
                 myData.push({
@@ -101,6 +101,8 @@ export const mapHighChart = async () => {
                     borderWidth: 0,
                     backgroundColor: '#ffffff',
                     borderRadius: 12,
+                    padding: 0,
+                    margin: 0
                 },
 
                 series: [{

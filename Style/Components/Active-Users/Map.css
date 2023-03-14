@@ -201,15 +201,23 @@ g[data-z-index="4"] {
 .map-hover-container {
   width: 220px;
   height: 120px;
+  font-size: 14px;
+  padding: 0;
 }
 .map-hover-h2 {
+  font-size: 16px;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 10px;
   margin-top: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 16px;
+  margin-left: 10px;
 }
 .map-ul {
   margin-top: 10px;
+  margin-left: 15px;
 }
 .list-grp-hover {
   list-style: none;
