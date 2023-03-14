@@ -98,6 +98,7 @@ const updateButton = (selector) => {
         btn.style.backgroundColor = SECONDARY_FILTER_BUTTON_COLOR;
         btn.style.color = UPDATED_COLOR;
         btn.style.opacity = UPDATED_OPACITY;
+        btn.style.borderRadius = UPDATED_BORDER_RADIUS;
     })
 }
 export
