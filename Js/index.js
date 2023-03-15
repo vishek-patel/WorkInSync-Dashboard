@@ -12,7 +12,7 @@ const main = () => {
     // getCountries()
     // AreaGraphDraw()
     // stack_chart()
-    mapHighChart()
+    // mapHighChart()
     // PieChart()
     // updateUserData()
 }

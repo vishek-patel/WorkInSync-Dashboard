@@ -1,0 +1,9 @@
+export const PRIMARY_FILTER_BUTTON_BG_COLOR = "#0937B2";
+export const SECONDARY_FILTER_BUTTON_COLOR = "#FFFFFF";
+export const DATA_ARROW_UP_COLOR = "#38AF49";
+export const DATA_ARROW_DOWN_COLOR = '#B00020';
+export const UPDATED_OPACITY = "0.6";
+export const UPDATED_COLOR = "#181F33";
+export const UPDATED_BORDER_RADIUS = "0PX";
+export const DOWN_ARROW = "/assets/downArrow.svg";
+export const UP_ARROW = "/assets/upArrow.svg";

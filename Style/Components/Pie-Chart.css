@@ -4,6 +4,7 @@
   border: 1px solid #df2020;
   padding: 18px 16px;
   border-radius: 8px;
+  padding-bottom: 20px;
 }
 .pie-chart-section-heading {
   font-weight: 700;
@@ -92,8 +93,9 @@ ul .list-group::before {
   color: #0937b2;
   font-weight: bold;
   display: inline-block;
-  width: 13.36px;
+  width: 17.36px;
   height: 13.36px;
+  font-size: 16.36px;
 }
 
 .bar-chart {

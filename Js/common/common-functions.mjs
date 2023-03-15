@@ -21,15 +21,17 @@ const user_arrow = document.querySelector('.user-arrow');
 
 
 // Constants
-const PRIMARY_FILTER_BUTTON_BG_COLOR = "#0937B2";
-const SECONDARY_FILTER_BUTTON_COLOR = "#FFFFFF";
-const DATA_ARROW_UP_COLOR = "#38AF49";
-const DATA_ARROW_DOWN_COLOR = '#B00020';
-const UPDATED_OPACITY = "0.6";
-const UPDATED_COLOR = "#181F33";
-const UPDATED_BORDER_RADIUS = "0PX";
-const DOWN_ARROW = "/assets/downArrow.svg";
-const UP_ARROW = "/assets/upArrow.svg";
+import {
+    PRIMARY_FILTER_BUTTON_BG_COLOR,
+    SECONDARY_FILTER_BUTTON_COLOR,
+    DATA_ARROW_UP_COLOR,
+    DATA_ARROW_DOWN_COLOR,
+    UPDATED_OPACITY,
+    UPDATED_COLOR,
+    UPDATED_BORDER_RADIUS,
+    DOWN_ARROW,
+    UP_ARROW
+} from '../Constants/constants'
 
 // Fetching data from API
 export const fetchData = async (url) => {

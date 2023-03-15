@@ -2,12 +2,11 @@
 // maps code
 import { fetchData } from './common-functions.mjs';
 export const mapHighChart = async () => {
-    const getTooltip = (name, val) => {
-        console.log(name, val);
+    const getTooltip = (name, map_data) => {
         if (name === undefined) {
             return ``
         }
-        const data = val.filter((item) => {
+        const data = map_data.filter((item) => {
             if (item.name === 'USA' && name === 'United States of America') {
                 return true
             }
@@ -34,21 +33,18 @@ export const mapHighChart = async () => {
     }
     async function initMap() {
         try {
-            const topology = await fetch(
-                'https://code.highcharts.com/mapdata/custom/world.topo.json'
-            ).then(response => response.json());
+            const topology = await fetchData('https://code.highcharts.com/mapdata/custom/world.topo.json');
             const map_data = await fetchData('https://map-fake-data.free.beeceptor.com/map-fake-data')
             const hoverData = await fetchData('https://map-hover-data.free.beeceptor.com/map-hover-data')
-            const myData = []
+            const map_custom_data = []
             map_data.forEach((item) => {
-                myData.push({
+                map_custom_data.push({
                     "code3": item.code3,
                     "value": item.value.reduce((a, b) => a + b, 0),
                     "name": item.name,
                     "code": item.code,
                 })
             })
-            console.log(myData);
             Highcharts.mapChart('map-container', {
 
                 chart: {
@@ -109,7 +105,7 @@ export const mapHighChart = async () => {
 
                 series: [
                     {
-                        data: myData,
+                        data: map_custom_data,
                         joinBy: ['iso-a3', 'code3'],
                         name: '',
                         states: {
@@ -119,7 +115,7 @@ export const mapHighChart = async () => {
                         },
                     },
                     {
-                        name: 'Coastal',
+                        name: '',
                         color: '#FF9D00',
                         data: hoverData,
                         type: 'mappoint'
