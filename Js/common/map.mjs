@@ -1,6 +1,6 @@
 
 // maps code
-
+import { fetchData } from './common-functions.mjs';
 export const mapHighChart = async () => {
     const getTooltip = (name, val) => {
         console.log(name, val);
@@ -12,9 +12,6 @@ export const mapHighChart = async () => {
                 return true
             }
             if (item.name === 'United Kingdom' && name === 'UK') {
-                return true
-            }
-            if (item.name === 'Soudi Arabia' && name === 'Saudi Arabia') {
                 return true
             }
             return item.name === name
@@ -40,10 +37,10 @@ export const mapHighChart = async () => {
             const topology = await fetch(
                 'https://code.highcharts.com/mapdata/custom/world.topo.json'
             ).then(response => response.json());
-            const data = await fetch('https://fake-api-data.free.beeceptor.com/fake-api-data')
-            const json = await data.json();
+            const map_data = await fetchData('https://map-fake-data.free.beeceptor.com/map-fake-data')
+            const hoverData = await fetchData('https://map-hover-data.free.beeceptor.com/map-hover-data')
             const myData = []
-            json.forEach((item) => {
+            map_data.forEach((item) => {
                 myData.push({
                     "code3": item.code3,
                     "value": item.value.reduce((a, b) => a + b, 0),
@@ -100,15 +97,14 @@ export const mapHighChart = async () => {
                 tooltip: {
                     headerFormat: '',
                     formatter: function () {
-                        // console.log(this.point?.name, json);
-                        return getTooltip(this.point?.name, json);
+                        return getTooltip(this.point?.name, map_data);
                     },
                     shared: true,
                     useHTML: true,
                     borderWidth: 0,
                     backgroundColor: '#ffffff',
                     borderRadius: 12,
-                    padding:10,
+                    padding: 10,
                 },
 
                 series: [
@@ -125,63 +121,7 @@ export const mapHighChart = async () => {
                     {
                         name: 'Coastal',
                         color: '#FF9D00',
-                        data: [
-                            [
-                                'is',
-                                28.7,
-                                77.10,
-                                'Delhi',
-
-                            ],
-                            [
-                                'is',
-                                22.57,
-                                88.36,
-                                'Kolkata',
-
-                            ],
-                            [
-                                'fo',
-                                26.7,
-                                49.99,
-                                'ras tanura'
-                            ],
-                            [
-                                'fi',
-                                48.3,
-                                31.1,
-                                'Ukrane',
-
-                            ],
-                            [
-                                'no',
-                                -33.86,
-                                151.20,
-                                'Sydney',
-
-                            ],
-                            [
-                                'no',
-                                -37.81,
-                                144.96,
-                                'Sydney',
-
-                            ],
-                            [
-                                'ee',
-                                38.90,
-                                -77.03,
-                                'WDC',
-
-                            ],
-                            [
-                                'ee',
-                                54.90,
-                                -75.03,
-                                'USA-2',
-
-                            ]
-                        ],
+                        data: hoverData,
                         type: 'mappoint'
                     }]
             });
