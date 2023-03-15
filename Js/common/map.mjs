@@ -36,8 +36,8 @@ export const mapHighChart = () => {
     async function initMap() {
         try {
             const topology = await fetchData('https://code.highcharts.com/mapdata/custom/world.topo.json');
-            const map_data = await fetchData('https://map-fake-data.free.beeceptor.com/map-fake-data')
-            const hoverData = await fetchData('https://map-hover-data.free.beeceptor.com/map-hover-data')
+            const map_data = await fetchData('https://map-fake-data.free.beeceptor.com/map-fake-data') // office , remote, flexibile data
+            const hoverData = await fetchData('https://map-hover-data.free.beeceptor.com/map-hover-data') // latitude and longitude data
             const map_custom_data = []
             // Building custom data for map
             map_data.forEach((item) => {
@@ -48,6 +48,7 @@ export const mapHighChart = () => {
                     "code": item.code,
                 })
             })
+            
             Highcharts.mapChart('map-container', {
 
                 chart: {
