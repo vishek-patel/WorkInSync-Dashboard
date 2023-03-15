@@ -201,7 +201,7 @@ g[data-z-index="4"] {
 /* Map Hover dot */
 .map-hover-container {
   width: 240px;
-  height: 115px;
+  height: 125px;
 }
 .map-hover-h2 {
   font-size: 16px;
@@ -213,6 +213,7 @@ g[data-z-index="4"] {
 .map-ul {
   margin-top: 10px;
   padding-left: 20px;
+  padding-bottom:10px;
 }
 .list-grp-hover {
   list-style: none;
@@ -223,6 +224,7 @@ g[data-z-index="4"] {
   content: "\2022";
   color: #0087b2;
   font-weight: bold;
+  font-size: 20px;
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -233,6 +235,8 @@ g[data-z-index="4"] {
   color: #b23600;
   font-weight: bold;
   display: inline-block;
+  font-size: 20px;
+  
   width: 8px;
   height: 8px;
   margin-right: 8px;
@@ -242,7 +246,9 @@ g[data-z-index="4"] {
   color: #815fd5;
   font-weight: bold;
   display: inline-block;
+  font-size: 20px;
   width: 8px;
   height: 8px;
   margin-right: 8px;
+  padding-bottom:10px;
 }

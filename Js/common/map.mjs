@@ -107,7 +107,8 @@ export const mapHighChart = async () => {
                     useHTML: true,
                     borderWidth: 0,
                     backgroundColor: '#ffffff',
-                    borderRadius: 12
+                    borderRadius: 12,
+                    padding:10,
                 },
 
                 series: [
