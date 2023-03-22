@@ -1,4 +1,3 @@
-
 // Importing functions
 import { filterData, getCountries, updateUserData } from "./common/common-functions.mjs";
 import { AreaGraphDraw } from './common/Area-graph.mjs';
@@ -17,4 +16,4 @@ const main = () => {
     updateUserData()
 }
 
-// main()
+main()
